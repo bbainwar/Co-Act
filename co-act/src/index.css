@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Red Rose';
+}
+
+.titlebox{
+  background-color: #144F71;
+  border-radius: 40px;
+  width: 23%;
+  height: 69%;
+  position: absolute;
+  top: 7%;
+  right: 11%;
+}
+
+.titlebox h1{
+  position: absolute;
+  top: 60%;
+  right: 10%;
+
+  font-family: 'Red Rose';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 54px;
+  line-height: 45px;
+
+  color: #FCF6F6;
+}
+
