@@ -1,10 +1,10 @@
 const LandingVectorAndButton = () => {
     return (
-        <div className="landingpage">
-            <div className="landingvector">
+        <div className="vectorandbutton">
+            <div className="vectorimage">
                 <img src="landingPageVector.png" alt="landingVector" />
             </div>
-            <div className="getstartedbutton">
+            <div className="button1">
                 <button>Get Started</button>
             </div>
         </div>
