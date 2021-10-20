@@ -1,1 +1,0 @@
-web: react index.js
