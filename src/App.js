@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 function App() {
   return (
     <div className="App">
+      <Titlebox />
       <Navbar />
     </div>
   );
