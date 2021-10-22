@@ -16,7 +16,8 @@
 
 input:focus{ outline: none; }
 
-.titlebox{
+.getstarted_titlebox,
+.homepage_titlebox{
   background-color: var(--darkBlue);
   border-radius: 40px;
   width: 23%;
@@ -27,7 +28,12 @@ input:focus{ outline: none; }
   z-index: 1;
 }
 
-.titlebox h1{
+.getstarted_titlebox{
+  left: 11%;
+}
+
+.getstarted_titlebox h1,
+.homepage_titlebox h1{
   position: absolute;
   top: 60%;
   right: 10%;
@@ -41,7 +47,13 @@ input:focus{ outline: none; }
   color: var(--white);
 }
 
-.blankspace{
+.getstarted_titlebox h1{
+  top: 10%;
+  right: 25%;
+}
+
+.getstarted_blankspace,
+.homepage_blankspace{
   position: absolute;
   right: 0;
   border-radius: 40px 0px 0px 40px;
@@ -50,15 +62,28 @@ input:focus{ outline: none; }
   height: 100%;
 }
 
-.vectorandbutton{
+.getstarted_blankspace{
+  left: 0;
+  border-radius: 0px 40px 40px 0px;
+}
+
+.vector{
   width: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: none;
 }
 
-.vectorimage img{
+.getstarted_vector img,
+.homepage_vector img{
   object-fit: cover;
+}
+
+.getstarted_vector{
+  position: absolute;
+  left: 40%;
+  top: 15%;
 }
 
 .button1{
@@ -67,8 +92,12 @@ input:focus{ outline: none; }
   justify-content: center;
 }
 
-.button1 button{
-  margin: 5% 0%;
+.button1 a{
+  display: flex;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-radius: 50px;
   background-color: var(--darkBlue);
@@ -80,7 +109,7 @@ input:focus{ outline: none; }
   line-height: 25px;
 }
 
-.button1 button:hover{
+.button1 a:hover{
   background-color: var(--darkBlueFaded);
   cursor: pointer;
 }

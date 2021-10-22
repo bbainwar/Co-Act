@@ -1,15 +1,20 @@
-import Titlebox from './Titlebox';
-import Blankspace from './Blankspace';
-import LandingVectorAndButton from './LandingVectorAndButton';
-import Navbar from './Navbar';
-import Login from './Login';
+import Homepage from "./Homepage"; 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Getstarted from "./Getstarted";
 
 function App() {
   return (
     <div className="App">
-      <Titlebox />
-      <Blankspace />
-      <LandingVectorAndButton />
+      <BrowserRouter>
+        <Switch> 
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route exact path="/getstarted">
+            <Getstarted />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
