@@ -24,11 +24,20 @@ connection.once('open', () => {
 
 const usersRouter = require('./routes/users');
 
+
+const adminRouter = require('./routes/admin');
+
+const contentsRouter = require('./routes/contents');
+
+const settingsRouter = require('./routes/settings');
+
 app.use('/users', usersRouter);
 
 app.use('/admin', adminRouter);
 
 app.use('/contents', contentsRouter);
+
+app.use('/settings', settingsRouter);
 
 app.use((req, res) => {
     res.send("Sorry! The page you are looking for is currently unavailable. Kindly contact bbainwar@gmail.com if you have any queries!");
