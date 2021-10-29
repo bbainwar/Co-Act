@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {    
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -23,14 +23,19 @@ connection.once('open', () => {
 });
 
 const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
+const contentsRouter = require('./routes/contents');
 
 app.use('/users', usersRouter);
+
+app.use('/admin', adminRouter);
+
+app.use('/contents', contentsRouter);
+
+app.use((req, res) => {
+    res.send("Sorry! The page you are looking for is currently unavailable. Kindly contact bbainwar@gmail.com if you have any queries!");
+})
 
 app.listen(port, () => {
     console.log(`The server is running on port: ${port}`);
 });
-
-
-
-
-
