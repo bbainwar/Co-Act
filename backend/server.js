@@ -40,7 +40,7 @@ app.use("/contents", contentsRouter);
 
 app.use("/settings", settingsRouter);
 
-app.use("/cospce", cospaceRouter);
+app.use("/cospace", cospaceRouter);
 
 app.use((req, res) => {
   res.send(
