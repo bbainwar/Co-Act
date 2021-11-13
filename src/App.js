@@ -12,7 +12,7 @@ function App() {
           </Route>
           <Route exact path="/getstarted">
             <Getstarted />
-          </Route>
+          </Route> 
         </Switch>
       </BrowserRouter>
     </div>
