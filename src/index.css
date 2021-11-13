@@ -3,6 +3,7 @@
 :root {
   --darkBlue: #144F71;
   --lightBlue: #A2DAFF;
+  --cospacemenublue: #6AACDC;
   --darkBlueFaded: #144F71dd;
   --darkBlueFadedPlus: #114566;
   --white: #FCF6F6; 
@@ -114,6 +115,8 @@ input:focus{ outline: none; }
   cursor: pointer;
 }
 
+/* Navbar */
+
 nav{
   background-color: var(--darkBlue);
   height: 80px;
@@ -190,3 +193,75 @@ nav{
   height: 40px;
 }
 
+/* Sidemenu */
+
+.sidemenu{
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  bottom: 0px;
+  background-color: var(--lightBlue);
+  width: 80px;
+}
+
+.cospacemenu ul,
+.sidemenu ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sidemenu img{
+  height: 40px;
+}
+
+.sidemenu p{
+  font-size: 10px;
+}
+
+.cospacemenu button,
+.sidemenu button{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  padding: 10px;
+}
+
+.cospacemenu button:hover,
+.sidemenu button:hover{
+  background-color: var(--darkBlueFadedPlus);
+  cursor: pointer;
+  color: var(--white);
+
+}
+
+/* Co-Space Menu */
+
+.cospacemenu{
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  bottom: 0px;
+  background-color: var(--cospacemenublue);
+  width: 300px;
+}
+
+.cospacemenu h1{
+  color: var(--white);
+  text-align: center;
+  font-size: 32px;
+  padding: 10px;
+}
+
+.cospacemenu p{
+  font-size: 20px;
+  padding: 5px;
+}
+
+.cospacemenu img{
+  height: 60px;
+}

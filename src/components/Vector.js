@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Vector = (props) => {
     
     const vector_class_name = props.vector_class_name;
-    const vector_src = props.vector_name;
+    const vector_src = "images/" + props.vector_name;
     const vector_alt = props.vector_alt;
 
     return (
