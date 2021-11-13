@@ -1,7 +1,7 @@
 const router = require("express").Router();
-let cospace = require("./models/cospace.model");
+let cospace = require("../models/cospace.model");
 
-router.route("/").get((req, req) => {
+router.route("/").get((req, res) => {
   cospace
     .find()
     .then((cospace) => res.json(cospace))
