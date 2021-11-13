@@ -24,7 +24,6 @@ connection.once('open', () => {
 
 const usersRouter = require('./routes/users');
 
-
 const adminRouter = require('./routes/admin');
 
 const contentsRouter = require('./routes/contents');
