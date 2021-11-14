@@ -1,4 +1,18 @@
+import React from 'react';
+import GoogleLogout from 'react-google-login';
+
+const clientId = "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleusercontent.com";
+
 const Navbar = () => {
+    const onLogoutSuccess = (res) => {
+        console.log('logout');
+    }
+
+    const logout = (e) => {
+        localStorage.clear();
+        window.location.href = 'http://localhost:3000';
+    }
+
     return ( 
         <nav>
             <div className="logo">
@@ -12,7 +26,16 @@ const Navbar = () => {
             </div>
             <div className="notificationandprofile">
                 <button><img src="images/Alarm.png" alt="notification"/></button>
-                <button><img src="images/Test Account.png" alt="avatar" /><img src="images/Sort Down.png" alt="SortDown" style={{height: '20px'}}/></button>
+                <button><img src={localStorage.getItem('pictureUrl')} alt="avatar" style={{ borderRadius: '50%' }}/></button>
+                <GoogleLogout
+                    clientId={clientId}
+                    render = { renderProps => (
+                        <button onClick={ logout } disabled={ renderProps.disabled }><img src="/images/Google.png" alt="googlelogo" style={{ height: '40px' }}/></button>
+                        ) 
+                        }
+                    buttonText="Logout"
+                    onLogoutSuccess={onLogoutSuccess}
+                />
             </div>
         </nav>
     );

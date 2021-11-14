@@ -3,6 +3,7 @@
 :root {
   --darkBlue: #144F71;
   --lightBlue: #A2DAFF;
+  --lightBlueFaded: #a2daffcc;
   --cospacemenublue: #6AACDC;
   --darkBlueFaded: #144F71dd;
   --darkBlueFadedPlus: #114566;
@@ -15,7 +16,11 @@
   font-family: 'Red Rose';
 }
 
-input:focus{ outline: none; }
+button:focus,
+input:focus{ 
+  outline: none;
+}
+
 
 .getstarted_titlebox,
 .homepage_titlebox{
@@ -264,4 +269,32 @@ nav{
 
 .cospacemenu img{
   height: 60px;
+}
+
+/* Google Login Button */
+
+.googlelogin button{
+  padding: 10px;
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background-color: var(--lightBlue);
+
+  border: none;
+  position: absolute;
+  width: 75%;
+  top: 60%;
+  left: 13%;
+  
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.googlelogin button:hover{
+  cursor: pointer;
+  background-color: var(--lightBlueFaded);
 }

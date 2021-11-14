@@ -2,7 +2,8 @@ import Titlebox from './components/Titlebox';
 import Blankspace from './components/Blankspace';
 import Vector from './components/Vector';
 
-const Homepage = () => {
+
+const Homepage = (props) => {
 
     const titlebox_class_name = 'homepage_titlebox';
     const blankspace_class_name = 'homepage_blankspace';
@@ -10,17 +11,21 @@ const Homepage = () => {
     const vector_name = 'landingPageVector.png';
     const vector_alt = 'landingVector';
 
-
-    return (
-        <div className = 'homepage'>
-            <Titlebox class_name = {titlebox_class_name}/>
-            <Blankspace class_name = {blankspace_class_name}/>
-            <Vector vector_class_name = {vector_class_name} 
-                vector_name = {vector_name}
-                vector_alt = {vector_alt}
-            />
-        </div>
-    );
+    if (props.user) {
+        window.location.href = '/mainpage';
+    } else{
+        return (
+            <div className = 'homepage'>
+                <Titlebox class_name = {titlebox_class_name}/>
+                <Blankspace class_name = {blankspace_class_name}/>
+                <Vector vector_class_name = {vector_class_name} 
+                    vector_name = {vector_name}
+                    vector_alt = {vector_alt}
+                />
+            </div>
+        );
+            
+    }
 }
  
 export default Homepage

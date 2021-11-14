@@ -9,7 +9,7 @@ const Getstarted = () => {
     const vector_class_name = 'getstarted_vector';
     const vector_name = 'getStartedVector.png';
     const vector_alt = 'getStartedVector';
-    const vector_ok = 'getVectorOk';
+    // const vector_ok = 'getVectorOk';
 
 
     return (
