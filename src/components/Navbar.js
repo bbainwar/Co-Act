@@ -1,16 +1,16 @@
 import React from 'react';
 import GoogleLogout from 'react-google-login';
+import axios from 'axios';
 
 const clientId = "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleusercontent.com";
 
 const Navbar = () => {
     const onLogoutSuccess = (res) => {
-        console.log('logout');
-    }
-
-    const logout = (e) => {
         localStorage.clear();
-        window.location.href = 'http://localhost:3000';
+        axios({
+            method: "GET",
+            url: "users/logout",
+          })
     }
 
     return ( 
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <GoogleLogout
                     clientId={clientId}
                     render = { renderProps => (
-                        <button onClick={ logout } disabled={ renderProps.disabled }><img src="/images/Google.png" alt="googlelogo" style={{ height: '40px' }}/></button>
+                        <button onClick={ renderProps.onClick } disabled={ renderProps.disabled }><img src="/images/Google.png" alt="googlelogo" style={{ height: '40px' }}/></button>
                         ) 
                         }
                     buttonText="Logout"

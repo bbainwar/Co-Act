@@ -7,5 +7,6 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/add").post(userController.addUser);
+router.route("/logout").get(userController.removeUser);
 
 module.exports = router;
