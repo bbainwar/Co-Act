@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 
 class CreateCospace extends Component{
-
-    
-    
-    
-    
-    
     render(){
         return(
             <div className="createcospace">

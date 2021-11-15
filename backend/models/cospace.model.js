@@ -17,11 +17,11 @@ const cospaceSchema = new Schema(
       type: String,
       required: true,
     },
-    messeges: {
-      sender: String,
-      message: String,
-      timestamps: time,
-    }
+    // messeges: {
+    //   sender: String,
+    //   message: String,
+    //   timestamps: time,
+    // }
   },
   {
     timestamps: true,

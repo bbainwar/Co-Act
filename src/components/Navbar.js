@@ -13,6 +13,10 @@ const Navbar = () => {
           })
     }
 
+    const onFailure = (res) => {
+        console.log("Logout failed");
+    }
+
     return ( 
         <nav>
             <div className="logo">
@@ -35,7 +39,9 @@ const Navbar = () => {
                         }
                     buttonText="Logout"
                     onLogoutSuccess={onLogoutSuccess}
-                />
+                    onFailure = {onFailure}
+                >
+                </GoogleLogout>    
             </div>
         </nav>
     );
