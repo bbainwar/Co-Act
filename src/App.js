@@ -5,6 +5,7 @@ import Sidemenu from "./components/Sidemenu";
 import CospaceMenu from "./components/CospaceMenu";
 import Navbar from "./components/Navbar";
 import Mainpage from "./Mainpage";
+import CreateCospacePage from "./CreateCospacePage";
 
 function App(){
   return (
@@ -12,6 +13,7 @@ function App(){
       <Route path="/" exact ><Homepage/></Route>
       <Route path="/getstarted"><Getstarted/></Route>
       <Route path="/mainpage"><Mainpage/></Route>
+      <Route path="/createcospace"><CreateCospacePage/></Route>
       {/* 
       <Route path="/sidemenu" component = {<Sidemenu/>}/>
       <Route path="/cospacemenu" component={<CospaceMenu/>}/>
