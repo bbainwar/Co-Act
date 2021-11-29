@@ -6,16 +6,16 @@ class CreateCospace extends Component{
             <div className="createcospace">
                 <h1>Co-SPACE Creation</h1>
                 <form>
-                    <div>
+                    <div className="cospacename">
                         <label htmlFor="coSpaceName">Co-Space Name:</label>
                         <input type="text" name="coSpaceName" id="coSpaceName" required/>
                     </div>
-                    <div>
+                    <div className="cospacedescription">
                         <label htmlFor="coSpaceDescription">Description:</label>
-                        <textarea rows="5" type="text" name="description" id="description" required />
+                        <textarea rows="15" cols="150" type="text" name="description" id="description" required />
                     </div>
-                    <div>
-                        <label htmlFor="coSpaceName">Co-Space Name:</label>
+                    <div className="coactornames">
+                        <label htmlFor="coActorNames">Co-Actor Names:</label>
                         <input type="text" name="coSpaceName" id="coSpaceName" />
                     </div>
                 </form>
