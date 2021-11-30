@@ -14,9 +14,13 @@ const cospaceSchema = new Schema(
     },
     //date: { type: Date, required: true },
     coactors: {
-      type: String,
-      required: true,
+      //type: Array,
+      //required: true,
     },
+    email:{
+      type:String,
+      required: true,
+    }
     // messeges: {
     //   sender: String,
     //   message: String,

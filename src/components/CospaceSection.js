@@ -25,7 +25,7 @@ class CospaceSection extends Component {
     //if (!posts.length()) return null;
     return posts.map((post, index) => (
       <div key={index} className="cospace">
-        <h3>{post.cospacename}</h3>
+        <h3>{posts.cospacename}</h3>
       </div>
     ));
   };
