@@ -69,6 +69,7 @@ const addUser = (req, res) => {
 const removeUser = async (req, res) => {
     await client.revokeCredentials();
     res.send('Successfully logged out');
+    
 }
 
 

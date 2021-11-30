@@ -37,6 +37,8 @@ const settingsRouter = require("./routes/settings");
 
 const cospaceRouter = require("./routes/cospace");
 
+//const conspacecreateRouter = require("./routes/cospace/");
+
 app.use("/users", usersRouter);
 
 app.use("/admin", adminRouter);
@@ -52,4 +54,11 @@ app.use((req, res) => {
     "Sorry! The page you are looking for is currently unavailable. Kindly contact bbainwar@gmail.com if you have any queries!"
   );
 });
+// app.post('/createcospaces', (req, res) => {
+//   console.log(req.body);
+//   db.collection('cospaces').insertOne(req.body, (err, data) => {
+//       if(err) return console.log(err);
+//       res.send(('saved to db: ' + data));
+//   })
+// });
 
