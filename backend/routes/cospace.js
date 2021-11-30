@@ -3,8 +3,11 @@ let cospace = require("../models/cospace.model");
 
 router.route("/").get((req, res) => {
   cospace
-    .find()
-    .then((cospace) => res.json(cospace))
+    .find({})
+    .then((cospace) => {
+      console.log(cospace);
+      res.json(cospace);
+    })
     .catch((err) => res.status(400).json("Error: " + err));
 });
 router.route("/add").post((req, res) => {

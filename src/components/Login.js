@@ -16,6 +16,7 @@ const Login = () => {
       }).then(response => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('pictureUrl', response.data.user.pictureUrl);
+        localStorage.setItem('email',response.data.user.pictureUrl);
         window.location.href = '/mainpage';
       }).catch(err => {
         console.log('Error: ' + err);
