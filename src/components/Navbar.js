@@ -1,7 +1,6 @@
 import React from 'react';
 import GoogleLogout from 'react-google-login';
 import axios from 'axios';
-import {Link}
 
 const clientId = "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleusercontent.com";
 
