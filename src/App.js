@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Mainpage from "./Mainpage";
 import CreateCospacePage from "./CreateCospacePage";
 import Chatpage from "./Chatpage";
+import Taskspage from "./Taskspage";
 
 function App(){
   return (
@@ -16,6 +17,7 @@ function App(){
       <Route path="/mainpage"><Mainpage/></Route>
       <Route path="/createcospace"><CreateCospacePage/></Route>
       <Route path="/chatpage"><Chatpage/></Route>
+      <Route path="/taskpage"><Taskspage/></Route>
       {/* 
       <Route path="/sidemenu" component = {<Sidemenu/>}/>
       <Route path="/cospacemenu" component={<CospaceMenu/>}/>

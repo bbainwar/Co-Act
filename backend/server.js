@@ -37,6 +37,8 @@ const settingsRouter = require("./routes/settings");
 
 const cospaceRouter = require("./routes/cospace");
 
+const taskRouter = require("./routes/task");
+
 //const conspacecreateRouter = require("./routes/cospace/");
 
 app.use("/users", usersRouter);
@@ -48,6 +50,8 @@ app.use("/contents", contentsRouter);
 app.use("/settings", settingsRouter);
 
 app.use("/cospace", cospaceRouter);
+
+app.use("/task", taskRouter);
 
 app.use((req, res) => {
   res.send(
@@ -61,4 +65,3 @@ app.use((req, res) => {
 //       res.send(('saved to db: ' + data));
 //   })
 // });
-
