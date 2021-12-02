@@ -2,7 +2,7 @@ import Blankspace from "./components/Blankspace";
 import Titlebox from "./components/Titlebox";
 import Vector from "./components/Vector";
 
-const Getstarted = () => {
+const Getstarted = (props) => {
 
     const blankspace_class_name = 'getstarted_blankspace';
     const titlebox_class_name = 'getstarted_titlebox';

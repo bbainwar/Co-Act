@@ -21,7 +21,6 @@ const addUser = (req, res) => {
                     })
                 } else{
                     if (user){
-                        const token = jwt.sign({_id: user._id}, process.env.JWT_SIGNIN_KEY, {expiresIn: '7d'})
 
                         const {_id, username, fullname, firstname, lastname, email, pictureUrl} = user;
 
