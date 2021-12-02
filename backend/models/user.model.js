@@ -10,23 +10,11 @@ const userSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    email: {
+    userId: {
         type: String,
         required: true,
         unique: true,
         trim: true
-    },
-    fullname: {
-        type: String
-    },
-    firstname: {
-        type: String
-    },
-    lastname: {
-        type: String
-    },
-    pictureUrl: {
-        type: String
     }
 }, {
     timestamps: true,

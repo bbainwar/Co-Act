@@ -3,7 +3,7 @@ import Sidemenu from "./components/Sidemenu";
 import CospaceMenu from "./components/CospaceMenu";
 import Chat from "./components/Chat";
 
-const Chatpage = () => {
+const Chatpage = (props) => {
 
     const cospace_button_class_name = "selected";
     const calendar_button_class_name = "notselected";
@@ -16,7 +16,7 @@ const Chatpage = () => {
 
     return (
         <div className="chatpage">
-            <Navbar/>
+            <Navbar user = {props.user}/>
             <Sidemenu cospace_button_class_name = {cospace_button_class_name}
                 calendar_button_class_name = {calendar_button_class_name}
                 todo_button_class_name = {todo_button_class_name}

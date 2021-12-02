@@ -1,20 +1,11 @@
 import React from 'react';
-import GoogleLogout from 'react-google-login';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
-const clientId = "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleusercontent.com";
 
-const Navbar = () => {
-    const onLogoutSuccess = (res) => {
-        localStorage.removeItem("token");
-        // axios({
-        //     method: "GET",
-        //     url: "users/logout",
-        //   })
-    }
+const Navbar = (props) => {
+    
+    const pictureUrl = props.user.photos[0].value;
 
-    const onFailure = (res) => {
-        console.log("Logout failed");
+    const logout = () => {
+        window.open("http://localhost:8000/auth/logout", "_self");
     }
 
     return ( 
@@ -30,19 +21,8 @@ const Navbar = () => {
             </div>
             <div className="notificationandprofile">
                 <button><img src="images/Alarm.png" alt="notification"/></button>
-                <button><img src={localStorage.getItem('pictureUrl')} alt="avatar" style={{ borderRadius: '50%' }}/></button>
-                <Link to="/users/logout">Logout</Link>
-                {/* <GoogleLogout
-                    clientId={clientId}
-                    render = { renderProps => (
-                        <button onClick={ renderProps.onClick } disabled={ renderProps.disabled }><img src="/images/Google.png" alt="googlelogo" style={{ height: '40px' }}/></button>
-                        ) 
-                        }
-                    buttonText="Logout"
-                    onLogoutSuccess={onLogoutSuccess}
-                    onFailure = {onFailure}
-                >
-                </GoogleLogout>     */}
+                <button><img src={pictureUrl} alt="avatar" style={{ borderRadius: '50%' }}/></button>
+                <button onClick={logout}><img src="images/Sign Out.png"/></button>
             </div>
         </nav>
     );
