@@ -5,7 +5,6 @@ class CreateCospace extends Component {
   constructor(props) {
     super(props);
     this.state = { title: "", description: "", coactor: [] };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -80,10 +79,13 @@ class CreateCospace extends Component {
             <MultipleValueTextInput
               name="item-input"
               onItemAdded={(item, allItems) =>
-                console.log(`Item added: ${item}`)
+                this.state.coactor.add(item)
+                //console.log(`Item added: ${item}`)
+                //console.log(allItems)
               }
               onItemDeleted={(item, allItems) =>
-                console.log(`Item removed: ${item}`)
+                this.state.coactor.remove(item)
+                //console.log(`Item removed: ${item}`)
               }
               name="coactor"
               value={this.state.coactor}
