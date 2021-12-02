@@ -1,26 +1,40 @@
 import Homepage from "./Homepage"; 
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import Getstarted from "./Getstarted";
-import Sidemenu from "./components/Sidemenu";
-import CospaceMenu from "./components/CospaceMenu";
-import Navbar from "./components/Navbar";
 import Mainpage from "./Mainpage";
 import CreateCospacePage from "./CreateCospacePage";
 import Chatpage from "./Chatpage";
 
 function App(){
+
+  const user = true;
+
   return (
     <Router>
-      <Route path="/" exact ><Homepage/></Route>
-      <Route path="/getstarted"><Getstarted/></Route>
-      <Route path="/mainpage"><Mainpage/></Route>
-      <Route path="/createcospace"><CreateCospacePage/></Route>
-      <Route path="/chatpage"><Chatpage/></Route>
-      {/* 
-      <Route path="/sidemenu" component = {<Sidemenu/>}/>
-      <Route path="/cospacemenu" component={<CospaceMenu/>}/>
-      <Route path="/navbar" component = {<Navbar/>}/>
-       */}
+      <div>
+        <Routes>
+          <Route 
+            path = "/"
+            element = {user ? <Navigate to="/mainpage"/> : <Homepage/>}
+          />
+          <Route 
+            path = "/getstarted"
+            element = {user ? <Navigate to="/mainpage"/> : <Getstarted/>}
+          />
+          <Route 
+            path = "/mainpage"
+            element = {user ? <Mainpage/> : <Navigate to="/getstarted"/>}
+          />
+          <Route 
+            path="/createcospace"
+            element = {user ? <CreateCospacePage/> : <Navigate to="/getstarted"/>}
+          />
+          <Route 
+            path="/chatpage"
+            element = {user ? <Chatpage/> : <Navigate to="/getstarted"/>}
+          />
+        </Routes>
+      </div>
     </Router>
   );
 }

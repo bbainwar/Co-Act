@@ -1,7 +1,6 @@
 import React from 'react';
-import GoogleLogout from 'react-google-login';
-import axios from 'axios';
-import {Link}
+// import GoogleLogout from 'react-google-login';
+// import axios from 'axios';
 
 const clientId = "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleusercontent.com";
 
@@ -32,7 +31,7 @@ const Navbar = () => {
             <div className="notificationandprofile">
                 <button><img src="images/Alarm.png" alt="notification"/></button>
                 <button><img src={localStorage.getItem('pictureUrl')} alt="avatar" style={{ borderRadius: '50%' }}/></button>
-                <Link to="/logout">Logout</Link>
+                {/* <Link to="/logout">Logout</Link> */}
                 {/* <GoogleLogout
                     clientId={clientId}
                     render = { renderProps => (
