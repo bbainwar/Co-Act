@@ -436,7 +436,7 @@ nav{
 
 
 /* Chat */
-
+.content,
 .chat-window {
   position: absolute;
   right: 0;
@@ -551,3 +551,4 @@ nav{
 .send-area button:hover {
   background-color: #5558fd;
 }
+/*Task*/

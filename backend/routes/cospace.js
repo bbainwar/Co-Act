@@ -3,20 +3,27 @@ let cospace = require("../models/cospace.model");
 
 router.route("/").get((req, res) => {
   cospace
-    .find()
-    .then((cospace) => res.json(cospace))
+    .find({})
+    .then((cospace) => {
+      console.log(cospace);
+      res.json(cospace);
+    })
     .catch((err) => res.status(400).json("Error: " + err));
 });
 router.route("/add").post((req, res) => {
-  const cospacename = req.body.cospacename;
-  const description = req.body.description;
-  const coactors = req.body.coactors;
-  const date = Date.parse(req.body.date);
+  const cospacename = req.body.databody.title;
+  const description = req.body.databody.description;
+  const coactors = req.body.databody.coactor;
+  const email = current_email;
+  console.log(cospacename);
+  console.log(req.body);
+  //const date = Date.parse(req.body.date);
   const newCospace = new cospace({
     cospacename,
     description,
     coactors,
-    date,
+    email,
+    //date,
   });
   newCospace
     .save()
