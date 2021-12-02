@@ -8,6 +8,10 @@ import Mainpage from "./Mainpage";
 import CreateCospacePage from "./CreateCospacePage";
 import Chatpage from "./Chatpage";
 import Taskspage from "./Taskspage";
+import TodoPage from "./TodoPage";
+import CalendarPage from "./CalendarPage";
+import CoactorsPage from "./CoactorsPage";
+
 
 function App(){
   return (
@@ -18,6 +22,9 @@ function App(){
       <Route path="/createcospace"><CreateCospacePage/></Route>
       <Route path="/chatpage"><Chatpage/></Route>
       <Route path="/taskpage"><Taskspage/></Route>
+      <Route path="/todopage"><TodoPage/></Route>
+      <Route path="/calendarpage"><CalendarPage/></Route>
+      <Route path="/coactorspage"><CoactorsPage/></Route>
       {/* 
       <Route path="/sidemenu" component = {<Sidemenu/>}/>
       <Route path="/cospacemenu" component={<CospaceMenu/>}/>
