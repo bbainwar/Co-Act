@@ -1,5 +1,10 @@
-import Homepage from "./Homepage"; 
-import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
+import Homepage from "./Homepage";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Getstarted from "./Getstarted";
 import Mainpage from "./Mainpage";
 import CreateCospacePage from "./CreateCospacePage";
@@ -8,11 +13,9 @@ import Taskspage from "./Taskspage";
 import TodoPage from "./TodoPage";
 import CalendarPage from "./CalendarPage";
 import CoactorsPage from "./CoactorsPage";
+import { useEffect, useState } from "react";
 
-import { useEffect } from "react";
-import { useState } from "react";
-
-function App(){
+function App() {
 
   const [user, setUser] = useState(null);
 
@@ -24,21 +27,29 @@ function App(){
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true
-        }
-      })
-      .then(response => {
-        console.log(response)
+          "Access-Control-Allow-Credentials": true,
+        },
+      }).then((response) => {
         if (response.status === 200) return response.json();
-        throw new Error("Authentication has been failed!");
+        throw new Error("Authentication has been failed");
       }).then(resObject => {
+        // localStorage.setItem("user", resObject);
         setUser(resObject.user);
+        localStorage.setItem("user", JSON.stringify(resObject.user))
       }).catch(error => {
         console.log(error);
       })
     }
-    getUser()
-  },[])
+    getUser();
+  }, []);
+
+  // if (!user && window.location.pathname === "/mainpage"){
+  //   return(
+  //     <div>
+  //       loading...
+  //     </div>
+  //   )
+  // }
 
   console.log(user);
 
@@ -46,41 +57,96 @@ function App(){
     <Router>
       <div>
         <Routes>
-          <Route 
-            path = "/"
-            element = {user ? <Navigate to="/mainpage"/> : <Homepage user = {user}/>}
+          <Route
+            path="/"
+            exact
+            element={
+              user ? (
+                <Navigate to="/mainpage" />
+              ) : (
+                <Homepage />
+              )
+            }
           />
-          <Route 
-            path = "/getstarted"
-            element = {user ? <Navigate to="/mainpage"/> : <Getstarted user = {user}/>}
+          <Route
+            path="/getstarted"
+            element={
+              user ? (
+                <Navigate to="/mainpage" />
+              ) : (
+                <Getstarted />
+              )
+            }
           />
-          <Route 
-            path = "/mainpage"
-            element = {user ? <Mainpage user = {user}/> : <Navigate to="/getstarted"/>}
+          <Route
+            path="/mainpage"
+            element={
+              user ? (
+                <Mainpage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
-          <Route 
+          <Route
             path="/createcospace"
-            element = {user ? <CreateCospacePage user = {user}/> : <Navigate to="/getstarted"/>}
+            element={
+              user ? (
+                <CreateCospacePage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
-          <Route 
+          <Route
             path="/chatpage"
-            element = {user ? <Chatpage user = {user}/> : <Navigate to="/getstarted"/>}
+            element={
+              user ? (
+                <Chatpage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
-          <Route 
+          <Route
             path="/taskpage"
-            element = {user ? <Taskspage user = {user}/> : <Navigate to="/getstarted"/>}
+            element={
+              user ? (
+                <Taskspage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
-          <Route 
+          <Route
             path="/todopage"
-            element = {user ? <TodoPage user = {user}/> : <Navigate to="/getstarted"/>}
+            element={
+              user ? (
+                <TodoPage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
-          <Route 
+          <Route
             path="/calendarpage"
-            element = {user ? <CalendarPage user = {user}/> : <Navigate to="/getstarted"/>}
+            element={
+              user ? (
+                <CalendarPage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
-          <Route 
+          <Route
             path="/coactorspage"
-            element = {user ? <CoactorsPage user = {user}/> : <Navigate to="/getstarted"/>}
+            element={
+              user ? (
+                <CoactorsPage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
           />
         </Routes>
       </div>

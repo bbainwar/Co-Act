@@ -7,7 +7,7 @@ const clientId = "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleuserc
 const Login = () => {
 
     const google = () => {
-      window.open("http://localhost:8000/auth/google", "_self");
+      window.open("http://localhost:8000/auth/google", "_self")
     }
 
     return ( 

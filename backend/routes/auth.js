@@ -6,7 +6,6 @@ const userController = require('../controllers/userController');
 const CLIENT_URL = 'http://localhost:3000/mainpage';
 
 router.get("/login/success", (req, res) => {
-    console.log(req.user)
     if (req.user){
         res.status(200).json({
             success: true,
@@ -26,6 +25,7 @@ router.get("/login/failed", (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.logout();
+    delete req.session;
     res.redirect(CLIENT_URL);
 })
 

@@ -54,6 +54,8 @@ const settingsRouter = require("./routes/settings");
 
 const cospaceRouter = require("./routes/cospace");
 
+const taskRouter = require("./routes/task");
+
 app.use("/auth", authRouter);
 
 app.use("/admin", adminRouter);

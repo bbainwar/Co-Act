@@ -219,6 +219,11 @@ nav{
   width: 80px;
 }
 
+.cospacemenu a,
+.sidemenu a{
+  width:  100%;
+}
+
 .cospacemenu ul,
 .sidemenu ul{
   list-style: none;
@@ -227,7 +232,6 @@ nav{
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-
   margin-top: 1px;
   gap: 1px;
 }

@@ -16,8 +16,6 @@ passport.use(new GoogleStrategy({
     const id = profile.id;
     const displayName = profile.displayName;
     
-    console.log(id);
-    console.log(displayName);
     User.findOne({userId: id}).exec((err, user) => {
       if (err){
           return res.status(400).json({

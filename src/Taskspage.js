@@ -5,6 +5,7 @@ import Task from "./components/Task";
 
 
 const Taskspage = () => {
+
     const cospace_button_class_name = "selected";
     const calendar_button_class_name = "notselected";
     const todo_button_class_name = "notselected";
@@ -14,7 +15,7 @@ const Taskspage = () => {
     const coactor_button_class_name = "notselected";
 
     return (
-        <div className="chatpage">
+        <div className="taskspage">
             <Navbar/>
             <Sidemenu cospace_button_class_name = {cospace_button_class_name}
                 calendar_button_class_name = {calendar_button_class_name}

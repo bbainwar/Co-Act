@@ -3,7 +3,7 @@ import Blankspace from './components/Blankspace';
 import Vector from './components/Vector';
 
 
-const Homepage = (props) => {
+const Homepage = () => {
 
     const titlebox_class_name = 'homepage_titlebox';
     const blankspace_class_name = 'homepage_blankspace';

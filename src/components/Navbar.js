@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Navbar = (props) => {
+const Navbar = () => {
     
-    const pictureUrl = props.user.photos[0].value;
+    const pictureUrl = JSON.parse(localStorage.getItem('user')).photos[0].value;
 
     const logout = () => {
         window.open("http://localhost:8000/auth/logout", "_self");
