@@ -45,14 +45,6 @@ const CospaceMenu = (props) => {
                     </li>
                 </button>
                 </Link>
-                <Link to="/chatpage">
-                <button className = {file_button_class_name}>
-                    <li>
-                        <img src = {file_png_src} alt="Files" />
-                        <p>Files</p>
-                    </li>
-                </button>
-                </Link>
                 <Link to="/coactorspage">
                 <button className = {coactor_button_class_name}>
                     <li>

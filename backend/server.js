@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
+var cookieParser = require('cookie-parser');
 const passport = require("passport");
 const mongoose = require("mongoose");
 const passportSetup = require('./passport');
@@ -27,6 +28,8 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded());
+
+app.use(cookieParser());
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {

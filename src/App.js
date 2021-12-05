@@ -14,6 +14,7 @@ import TodoPage from "./TodoPage";
 import CalendarPage from "./CalendarPage";
 import CoactorsPage from "./CoactorsPage";
 import { useEffect, useState } from "react";
+import ShowUsernamePage from "./ShowUsernamePage";
 
 function App() {
 
@@ -143,6 +144,16 @@ function App() {
             element={
               user ? (
                 <CoactorsPage />
+              ) : (
+                <Navigate to="/getstarted" />
+              )
+            }
+          />
+          <Route
+            path="/showusernamepage"
+            element={
+              user ? (
+                <ShowUsernamePage />
               ) : (
                 <Navigate to="/getstarted" />
               )

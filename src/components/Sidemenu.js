@@ -28,27 +28,11 @@ const Sidemenu = (props) => {
             </li>
           </button>
         </Link>
-        <Link to="/calendarpage">
-          <button className={calendar_button_class_name}>
-            <li>
-              <img src={calendar_png_src} alt="Calendar" />
-              <p>Calendar</p>
-            </li>
-          </button>
-        </Link>
         <Link to="/todopage">
           <button className={todo_button_class_name}>
             <li>
               <img src={todo_png_src} alt="ToDo List" />
               <p>ToDo List</p>
-            </li>
-          </button>
-        </Link>
-        <Link to="/taskpage">
-          <button className={todo_button_class_name}>
-            <li>
-              <img src={todo_png_src} alt="ToDo List" />
-              <p>Tasks</p>
             </li>
           </button>
         </Link>
