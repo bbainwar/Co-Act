@@ -18,9 +18,7 @@ passport.use(new GoogleStrategy({
 
     User.findOne({userId: id}).exec((err, user) => {
       if (err){
-          return res.status(400).json({
-              error: "Something went wrong..."
-          })
+          console.log(err)
       } else{
           if (!user){
               const userId = id;
@@ -29,9 +27,7 @@ passport.use(new GoogleStrategy({
 
               newUser.save((err, data) => {
                   if (err) {
-                      return res.status(400).json({
-                          error: "Something went wrong..."
-                      })
+                      console.log(err)
                   }
                   console.log("Data Saved Successfully!");
               })

@@ -102,7 +102,7 @@ class CreateCospace extends Component {
       title: this.state.title,
       description: this.state.description,
       coactor: this.state.tags,
-      uid: JSON.parse(localStorage.getItem("user")).userId
+      uid: JSON.parse(localStorage.getItem("user")).id
     };
     console.log(databody);
     axios
