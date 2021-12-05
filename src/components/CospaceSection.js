@@ -39,9 +39,12 @@ class CospaceSection extends Component {
   displayCospace = (posts) => {
     //if (!posts.length()) return null;
     return posts.map((post, index) => (
-      <div key={index} className="cospace">
-        <h3>{post.cospacename}</h3>
-      </div>
+      <Link to="/taskpage">
+        <div key={index} className="cospace">
+          <h3>{post.cospacename}</h3>
+          <p>{post.description}</p>
+        </div>
+      </Link>
     ));
   };
 
@@ -53,14 +56,6 @@ class CospaceSection extends Component {
         </div>
         <div className="cospacelist">
           {this.displayCospace(this.state.posts)}
-          {/* <div className="cospace"></div>
-                <div className="cospace"></div>
-                <div className="cospace"></div>
-                <div className="cospace"></div>
-                <div className="cospace"></div>
-                <div className="cospace"></div>
-                <div className="cospace"></div>
-                <div className="cospace"></div> */}
         </div>
         <Link to="/createcospace">
           <button className="createcospacebutton">

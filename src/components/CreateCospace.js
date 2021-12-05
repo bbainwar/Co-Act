@@ -3,6 +3,7 @@ import axios from "axios";
 // import MultipleValueTextInput from "react-multivalue-text-input";
 // import ReactDOM from 'react-dom';
 import { WithContext as ReactTags } from "react-tag-input";
+import { IconButton } from "@material-ui/core";
 
 const KeyCodes = {
   comma: 188,
@@ -22,9 +23,6 @@ class CreateCospace extends Component {
       .then((response) => {
         const data = response.data;
         let payload = [];
-        console.log("Hamro data");
-        console.log(response.data);
-
         data.map((user, index) => {
           payload.push({
             id: user.userId,
@@ -179,12 +177,12 @@ class CreateCospace extends Component {
               delimiters={delimiters}
             />
           </div>
-          <div>
+          <div className="submitcospace">
             <input
               type="submit"
               name="create"
               id="create"
-              value="create"
+              value="Create"
             ></input>
           </div>
         </form>
