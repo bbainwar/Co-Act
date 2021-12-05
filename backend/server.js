@@ -61,6 +61,8 @@ const taskRouter = require("./routes/task");
 
 const userRouter = require("./routes/user");
 
+const todoRouter = require("./routes/todo");
+
 app.use("/auth", authRouter);
 
 app.use("/admin", adminRouter);
@@ -74,6 +76,8 @@ app.use("/cospace", cospaceRouter);
 app.use("/task", taskRouter);
 
 app.use("/user", userRouter);
+
+app.use("/todo",todoRouter);
 
 app.use((req, res) => {
   res.send(
