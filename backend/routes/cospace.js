@@ -21,7 +21,7 @@ router.route("/add").post((req, res) => {
     cospacename,
     description,
     coactors,
-    uid
+    uid,
   });
   newCospace
     .save()
