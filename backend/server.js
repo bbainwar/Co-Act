@@ -56,6 +56,8 @@ const cospaceRouter = require("./routes/cospace");
 
 const taskRouter = require("./routes/task");
 
+const userRouter = require("./routes/user");
+
 app.use("/auth", authRouter);
 
 app.use("/admin", adminRouter);
@@ -67,6 +69,8 @@ app.use("/settings", settingsRouter);
 app.use("/cospace", cospaceRouter);
 
 app.use("/task", taskRouter);
+
+app.use("/user", userRouter);
 
 app.use((req, res) => {
   res.send(

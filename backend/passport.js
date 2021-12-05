@@ -15,7 +15,7 @@ passport.use(new GoogleStrategy({
   function(accessToken, refreshToken, profile, done) {
     const id = profile.id;
     const displayName = profile.displayName;
-    
+
     User.findOne({userId: id}).exec((err, user) => {
       if (err){
           return res.status(400).json({

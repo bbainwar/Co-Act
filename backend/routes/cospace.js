@@ -10,20 +10,19 @@ router.route("/").get((req, res) => {
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
 router.route("/add").post((req, res) => {
   const cospacename = req.body.databody.title;
   const description = req.body.databody.description;
   const coactors = req.body.databody.coactor;
-  const email = current_email;
+  const uid = req.body.databody.uid;
   console.log(cospacename);
-  console.log(req.body);
   //const date = Date.parse(req.body.date);
   const newCospace = new cospace({
     cospacename,
     description,
     coactors,
-    email,
-    //date,
+    uid
   });
   newCospace
     .save()

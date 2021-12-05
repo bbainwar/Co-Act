@@ -14,12 +14,12 @@ const cospaceSchema = new Schema(
     },
     //date: { type: Date, required: true },
     coactors: {
-      //type: Array,
-      //required: true,
-    },
-    email:{
-      type:String,
+      type: Array,
       required: true,
+    },
+    uid: {
+      type: String,
+      required: true
     }
     // messeges: {
     //   sender: String,
