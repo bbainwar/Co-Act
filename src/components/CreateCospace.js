@@ -47,7 +47,12 @@ class CreateCospace extends Component {
     this.state = {
       title: "",
       description: "",
-      tags: [],
+      tags: [
+        {
+          id: JSON.parse(localStorage.getItem('user')).id,
+          text: JSON.parse(localStorage.getItem('user')).displayName
+        }
+      ],
       suggestions: [],
     };
 

@@ -5,7 +5,6 @@ router.route("/").get((req, res) => {
   cospace
     .find({})
     .then((cospace) => {
-      console.log(cospace);
       res.json(cospace);
     })
     .catch((err) => res.status(400).json("Error: " + err));
