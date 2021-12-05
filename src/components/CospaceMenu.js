@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CospaceMenu = (props) => {
 
     const chat_button_class_name = props.chat_button_class_name;
@@ -27,30 +29,38 @@ const CospaceMenu = (props) => {
         <div className="cospacemenu">
             <h1>Co-Space Name</h1>
             <ul>
+            <Link to="/chatpage">
                 <button className = {chat_button_class_name}>
                     <li>
                         <img src = {chat_png_src} alt="Chat" />
                         <p>Chat</p>
                     </li>
                 </button>
+                </Link>
+                <Link to="/taskpage">
                 <button className = {task_button_class_name}>
                     <li>
                         <img src = {task_png_src} alt="Tasks" />
                         <p>Tasks</p>
                     </li>
                 </button>
+                </Link>
+                <Link to="/chatpage">
                 <button className = {file_button_class_name}>
                     <li>
                         <img src = {file_png_src} alt="Files" />
                         <p>Files</p>
                     </li>
                 </button>
+                </Link>
+                <Link to="/coactorspage">
                 <button className = {coactor_button_class_name}>
                     <li>
                         <img src = {coactor_png_src} alt="Co-Actors" />
                         <p>Co-Actors</p>
                     </li>
                 </button>
+                </Link>
             </ul>
         </div>
     );
