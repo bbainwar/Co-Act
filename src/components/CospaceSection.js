@@ -9,10 +9,25 @@ class CospaceSection extends Component {
     this.getCospaces();
   };
   getCospaces = () => {
+    const uid = JSON.parse(localStorage.getItem("user")).id;
+
     axios
       .get("http://localhost:8000/cospace/")
       .then((response) => {
-        const data = response.data;
+        let data = [];
+
+        response.data.map((post, index) => {
+          if (post.uid === uid) {
+            data.push(post);
+          } else {
+            post.coactors.map((obj, index) => {
+              if (obj.id === uid) {
+                data.push(post);
+              }
+            });
+          }
+        });
+
         this.setState({ posts: data });
         console.log("Data has been received!!");
       })
@@ -25,10 +40,11 @@ class CospaceSection extends Component {
     //if (!posts.length()) return null;
     return posts.map((post, index) => (
       <div key={index} className="cospace">
-        <h3>{posts.cospacename}</h3>
+        <h3>{post.cospacename}</h3>
       </div>
     ));
   };
+
   render() {
     return (
       <div className="cospacesection">
