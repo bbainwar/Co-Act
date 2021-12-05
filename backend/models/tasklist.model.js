@@ -16,17 +16,21 @@ const TaskListSchema = new Schema({
         type: String,
         required: true
     },
-     createdDate: {
-        type: Date,
-        default: Date.now
-    },
-    updatedDate: {
-        type: Date,
-        default: null
-    },
-    deletedDate: {
-        type: Date,
-        default: null
+    //  createdDate: {
+    //     type: Date,
+    //     default: Date.now
+    // },
+    // updatedDate: {
+    //     type: Date,
+    //     default: null
+    // },
+    // deletedDate: {
+    //     type: Date,
+    //     default: null
+    // },
+    cospacename: {
+        type: String,
+        required : true
     }
 });
 

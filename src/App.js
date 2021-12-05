@@ -112,11 +112,11 @@ function App() {
           <Route
             path="/taskpage"
             element={
-              user ? (
-                <Taskspage />
-              ) : (
-                <Navigate to="/getstarted" />
-              )
+              // user ? (
+                <Taskspage/>
+              //) : (
+                //<Navigate to="/getstarted" />
+              //)
             }
           />
           <Route

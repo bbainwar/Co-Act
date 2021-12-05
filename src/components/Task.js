@@ -42,7 +42,7 @@ class Form extends React.Component {
                 }
         }
         //let data = { formData: this.state, userData: localStorage.getItem('user') }
-        let data = { formData: this.state}
+        let data = { formData: this.state,cospacename:localStorage.getItem("recent_cospace_clicked"),uid:JSON.parse(localStorage.getItem("user")).id}
         //axios.defaults.headers.common["Authorization"] = localStorage.getItem('token');
         axios.post("http://localhost:8000/task/add", data).then(res => {
             if(res.data.success) NotificationManager.success(res.data.msg);

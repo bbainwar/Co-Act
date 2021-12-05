@@ -36,15 +36,20 @@ class CospaceSection extends Component {
         console.log(e);
       });
   };
+  gotoTask=(e)=>{
+    console.log(e.currentTarget.id);
+    localStorage.setItem("recent_cospace_clicked",e.currentTarget.id);
+    window.location.href="http://localhost:3000/taskpage";
+  }
   displayCospace = (posts) => {
     //if (!posts.length()) return null;
     return posts.map((post, index) => (
-      <Link to="/taskpage">
-        <div key={index} className="cospace">
+      // <Link to="/taskpage">
+        <div key={index} className="cospace" onClick={this.gotoTask} id={post.cospacename}>
           <h3>{post.cospacename}</h3>
           <p>{post.description}</p>
         </div>
-      </Link>
+      // </Link>
     ));
   };
 
