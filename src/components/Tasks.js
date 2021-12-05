@@ -11,14 +11,14 @@ class Tasks extends Component {
   async componentDidMount() {
     const uid = JSON.parse(localStorage.getItem("user")).id;
     try {
-      const { todos } = await getTasks();
-      let data = [];
-      todos.map((todo, index) => {
+      const { data } = await getTasks();
+      let datas = [];
+      data.map((todo, index) => {
           if(uid===todo.uid){
-              data.push(todo);
+              datas.push(todo);
           }
       });
-      this.setState({ tasks: data });
+      this.setState({ tasks: datas });
     } catch (error) {
       console.log(error);
     }
