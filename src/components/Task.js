@@ -8,16 +8,12 @@ import {
 
 class Task extends React.Component {
   state = {
-    currentTask: [
-      {
-        // index: Math.random(),
-        assignedBy: JSON.parse(localStorage.getItem("user")).dispayName,
-        uid: JSON.parse(localStorage.getItem("user")).id,
-        task: "",
-        taskNotes: "",
-        taskStatus: "",
-      },
-    ],
+    assignedBy: JSON.parse(localStorage.getItem("user")).displayName,
+    uid: JSON.parse(localStorage.getItem("user")).id,
+    cospaceName: localStorage.getItem("recent_cospace_clicked"),
+    task: "",
+    taskNotes: "",
+    taskStatus: "Pending",
     taskList: [],
   };
 
@@ -42,98 +38,116 @@ class Task extends React.Component {
     return axios.get("http://localhost:8000/task");
   };
 
-  handleChange = (e) => {
-    if (
-      ["projectName", "task", "taskNotes", "taskStatus"].includes(e.target.name)
-    ) {
-      let taskList = [...this.state.taskList];
-      taskList[e.target.dataset.id][e.target.name] = e.target.value;
-    } else {
-      this.setState({ [e.target.name]: e.target.value });
+  handleChange = (event) => {
+    if (event.target.name === "taskStatus"){
+      this.setState({
+        taskStatus: event.target.value 
+      });
+    }
+    else{
+      this.setState({
+        [event.target.name]: event.target.value,
+      });
     }
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    for (var i = 0; i < this.state.taskList.length; i++) {
-      if (
-        this.state.taskList[i].projectName === "" ||
-        this.state.taskList[i].task === ""
-      ) {
-        NotificationManager.warning(
-          "Please Fill up Required Field.Please Check Project name And Task Field"
-        );
-        return false;
-      }
+    if (
+      this.state.task === "" ||
+      this.state.taskNotes === ""
+    ) {
+      NotificationManager.warning(
+        "Please Fill up Required Field. Please Check Task field And Task Notes field"
+      );
+      return false;
     }
-    let data = { formData: this.state };
+    let data = {
+      assignedBy: this.state.assignedBy,
+      uid: this.state.uid,
+      task: this.state.task,
+      taskNotes: this.state.taskNotes,
+      taskStatus: this.state.taskStatus,
+      cospaceName: this.state.cospaceName
+    };
+
     axios
       .post("http://localhost:8000/task/add", data)
       .then((res) => {
-        if (res.data.success) NotificationManager.success(res.data.msg);
+        window.location.href = "http://localhost:3000/taskpage";
       })
       .catch((error) => {
         if (error.response.status && error.response.status === 400)
           NotificationManager.error("Bad Request");
         else NotificationManager.error("Something Went Wrong");
-        this.setState({ errors: error });
       });
   };
-
-  clickOnDelete(record) {
-    this.setState({
-      taskList: this.state.taskList.filter((r) => r !== record),
-    });
-  }
 
   render() {
     let { taskList } = this.state;
     return (
       <div className="tasksection">
         <h1>Tasks</h1>
-        <p>{localStorage.getItem("recent_cospace_clicked_description")}</p>
-        <form onSubmit={this.handleSubmit} className="taskform">
-          <tr>
-            <th>Task</th>
-            <td>
+        <h2>{localStorage.getItem("recent_cospace_clicked_description")}</h2>
+        <div className="addnewtask">
+          <form onSubmit={this.handleSubmit} className="taskform">
+            <div className="taskname">
+              <label htmlFor="taskName">Task</label>
               <input
                 type="text"
                 name="task"
-                className="form-control"
+                className="taskname"
+                onChange={this.handleChange}
+                value={this.state.task}
               />
-            </td>
-            <td>
+            </div>
+            <div className="tasknotes">
+              <label htmlFor="taskName">Task Notes</label>
               <textarea
+                rows="3"
                 name="taskNotes"
                 className="form-control"
+                onChange={this.handleChange}
+                value={this.state.taskNotes}
               ></textarea>
-            </td>
-            <td>
+            </div>
+            <div className="taskstatus">
+              <label htmlFor="taskStatus">Task Status</label>
               <select
                 name="taskStatus"
-                className="form-control"
+                className="taskstatusselect"
+                onChange={this.handleChange}
+                value={this.state.taskStatus}
               >
                 <option value="pending">Pending</option>
                 <option value="In Progress">In progress</option>
                 <option value="Completed">Completed</option>
                 <option value="Hold">Hold</option>
               </select>
-            </td>
-          </tr>
-        </form>
-
-        <ul className="taskcards">
-          {taskList.map((task) => (
-            <li>
-              <div className="taskcard">
-                <div className="task">{task.task}</div>
-                <div className="taskNotes">{task.taskNotes}</div>
-                <div className="assignedBy">{task.assignedBy}</div>
-                <div className="taskStatus">{task.taskStatus}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
+            </div>
+            <div className="submitnewtask">
+              <input type="submit" name="add" id="addnewtask" value="Add"></input>
+            </div>
+          </form>
+        </div>
+        <div className="tasklist">
+          <ul className="taskcards">
+            {taskList.map((task) => (
+              <li>
+                <div className="taskcard">
+                  <div className="task">{task.task}</div>
+                  <div className="taskNotes">{task.taskNotes}</div>
+                  <div className="assignedBy">{task.assignedBy}</div>
+                  <div className="taskStatus">{task.taskStatus}</div>
+                </div>
+                <div className="taskcontrls">
+                  <button className="edittasks">Edit</button>
+                  <button className="deletetasks">Delete</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
