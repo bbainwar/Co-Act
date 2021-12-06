@@ -36,15 +36,25 @@ class CospaceSection extends Component {
         console.log(e);
       });
   };
+
+  setCurrentCospace = (e) => {
+    localStorage.setItem("recent_cospace_clicked", e.currentTarget.id);
+    this.state.posts.map((post) => {
+      if(post.cospacename === e.currentTarget.id){
+        localStorage.setItem("recent_cospace_clicked_description", post.description);
+        console.log(post.description);
+      }
+    })
+    window.location.href = "http://localhost:3000/taskpage";
+  }
+
   displayCospace = (posts) => {
     //if (!posts.length()) return null;
     return posts.map((post, index) => (
-      <Link to="/taskpage">
-        <div key={index} className="cospace">
+        <div key={index} className="cospace" id = {post.cospacename} onClick={this.setCurrentCospace}>
           <h3>{post.cospacename}</h3>
           <p>{post.description}</p>
         </div>
-      </Link>
     ));
   };
 
