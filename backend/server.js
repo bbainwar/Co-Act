@@ -5,11 +5,12 @@ var cookieParser = require('cookie-parser');
 const passport = require("passport");
 const mongoose = require("mongoose");
 const passportSetup = require('./passport');
-
+///const socketio = require('socket.io');
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 8000;
+//const io= socketio(server);
 
 app.use(cookieSession({
   name: "session",
@@ -36,7 +37,9 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
+//io.on("connection",socket=>{
+  //console.log("New Web Socket Connection");
+//});
 const connection = mongoose.connection;
 
 connection.once("open", () => {

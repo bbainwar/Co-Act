@@ -15,7 +15,6 @@ class CospaceSection extends Component {
       .get("http://localhost:8000/cospace/")
       .then((response) => {
         let data = [];
-
         response.data.map((post, index) => {
           if (post.uid === uid) {
             data.push(post);

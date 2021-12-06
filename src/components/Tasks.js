@@ -8,48 +8,21 @@ import {
 import axios from "axios";
 class Tasks extends Component {
   state = { tasks: [], currentTask: "" };
-  
-    async componentDidMount() {
-      const uid = JSON.parse(localStorage.getItem("user")).id;
-      try {
-        const {data}  = await getTasks();
-        let datas = [];
-        data.map((todo, index) => {
-            if(uid===todo.uid){
-                datas.push(todo);
-            }
-        });
-        //console.log(datas);
-        this.setState({ tasks: datas });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-//   componentDidMount = () => {
-//     this.getCospaces();
-//   };
-//   getCospaces = () => {
-//     const uid = JSON.parse(localStorage.getItem("user")).id;
-
-//     axios
-//       .get("http://localhost:8000/todo/")
-//       .then((response) => {
-//         let data = [];
-
-//         response.data.map((post, index) => {
-//           if (post.uid === uid) {
-//             data.push(post);
-//           }
-//         });
-//         console.log(data);
-//         this.setState({ tasks: data });
-//         console.log("Data has been received!!");
-//       })
-//       .catch((e) => {
-//         //alert("Error");
-//         console.log(e);
-//       });
-//   };
+  async componentDidMount() {
+    const uid = JSON.parse(localStorage.getItem("user")).id;
+    try {
+      const { data } = await getTasks();
+      let datas = [];
+      data.map((todo, index) => {
+          if(uid===todo.uid){
+              datas.push(todo);
+          }
+      });
+      this.setState({ tasks: datas });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   handleChange = ({ currentTarget: input }) => {
     this.setState({ currentTask: input.value });
