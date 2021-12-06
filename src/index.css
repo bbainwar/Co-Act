@@ -407,6 +407,8 @@ nav{
 
   border-radius: 5px;
   align-items: center;
+
+  color: var(--white);
 }
 
 .cospace h3{
@@ -560,6 +562,7 @@ nav{
 
 
 /* Chat */
+.tasksection,
 .coactorssection,
 .content,
 .chat-window {
@@ -756,3 +759,6 @@ nav{
 .line_through {
   text-decoration: line-through;
 }
+
+/* tasksection */
+
