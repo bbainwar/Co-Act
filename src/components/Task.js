@@ -132,6 +132,20 @@ class Task extends React.Component {
         </div>
         <div className="tasklist">
           <ul className="taskcards">
+          <li>
+                <div className="taskcard">
+                  <div className="task"><b>Task</b></div>
+                  <div className="taskNotes"><b>Task Notes</b></div>
+                  <div className="assignedBy"><b>Assigned By</b></div>
+                  <div className="taskStatus"><b>Task Status</b></div>
+                </div>
+                <div className="taskcontrols">
+                  <div className="edittasks">
+                  </div>
+                  <div className="deletetasks">
+                  </div>
+                </div>
+                </li>
             {taskList.map((task) => (
               <li>
                 <div className="taskcard">
@@ -140,9 +154,13 @@ class Task extends React.Component {
                   <div className="assignedBy">{task.assignedBy}</div>
                   <div className="taskStatus">{task.taskStatus}</div>
                 </div>
-                <div className="taskcontrls">
-                  <button className="edittasks">Edit</button>
-                  <button className="deletetasks">Delete</button>
+                <div className="taskcontrols">
+                  <div className="edittasks">
+                    <button id="editbtn">Edit</button>
+                  </div>
+                  <div className="deletetasks">
+                    <button id="deletebtn">Delete</button>
+                  </div>
                 </div>
               </li>
             ))}

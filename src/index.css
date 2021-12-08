@@ -275,7 +275,7 @@ nav{
 /* Co-Space Menu */
 
 .cospacemenu{
-  position: absolute;
+  position: fixed;
 
   border-left: 1px solid var(--lightBlue);
 
@@ -632,6 +632,7 @@ nav{
 }
 
 .chat {
+  width: 40%;
   background-color: #fff;
   margin: 0.5rem;
   border-radius: 12px;
@@ -655,6 +656,14 @@ nav{
   padding: 0.6rem;
   display: flex;
   gap: 0.5rem;
+}
+
+.send-area form{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  gap: 5px;
 }
 
 .send-area input {
@@ -822,4 +831,62 @@ nav{
   padding: 5px;
 }
 
+/* Task List */
 
+.tasklist{
+  padding: 10px;
+}
+
+.taskcards{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.taskcards li{
+  display: grid;
+  grid-template-columns: 90% 10%;
+  gap: 20px;
+}
+
+.taskcard{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+}
+
+.taskcontrols{
+  display: flex;
+  gap: 5px;
+}
+
+.taskcontrols button{
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+
+  color: white;
+  cursor: pointer;
+}
+
+#deletebtn:hover,
+#editbtn:hover{
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+#editbtn:hover{
+  background-color: #0095ffb6;
+}
+
+#deletebtn:hover{
+  background-color: rgba(255, 0, 0, 0.74);
+}
+
+#editbtn{
+  background-color: #0095ff;
+}
+
+#deletebtn{
+  background-color: rgb(255, 0, 0);
+}

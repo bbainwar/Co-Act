@@ -266,7 +266,13 @@ class Chat extends Component {
 
         <div className="chat-area" id="chat-area">
           {this.state.chats.map((chat) => {
-            return <p key={chat.timestamp}>{chat.content}</p>;
+            return (
+              <div className="chat">
+                <span className="chat-name">Roshan</span>
+                <span className="chat-msg">{chat.content}</span>
+              </div>
+            ) 
+            // <p key={chat.timestamp}>{chat.content}</p>;
           })}
         </div>
 
@@ -286,4 +292,5 @@ class Chat extends Component {
     );
   }
 }
+
 export default Chat;

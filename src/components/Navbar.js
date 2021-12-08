@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom"
 
@@ -25,7 +26,7 @@ const Navbar = () => {
         <Link to = "/showusernamepage">
           <button>
             <img
-              src={pictureUrl}
+              src= {pictureUrl}
               alt="avatar"
               style={{ borderRadius: "50%" }}
             />
