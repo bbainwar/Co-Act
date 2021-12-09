@@ -1,7 +1,4 @@
-import { FirebaseError } from "@firebase/util";
 import React, { Component } from "react";
-import moment from "moment";
-import { query, orderBy } from "firebase/firestore";
 import db from "../services/Firebase";
 import {
   NotificationContainer,
@@ -23,13 +20,13 @@ class Chat extends Component {
     event.preventDefault();
     this.setState({ writeError: null });
     try {
-    db.collection("chats").add({
-      content: this.state.content,
-      timestamp: new Date(),
-      name: JSON.parse(localStorage.getItem("user")).displayName,
-      cospacename: localStorage.getItem("recent_cospace_clicked"),
-    });
-    this.setState({ content: "" });
+      db.collection("chats").add({
+        content: this.state.content,
+        timestamp: new Date(),
+        name: JSON.parse(localStorage.getItem("user")).displayName,
+        cospacename: localStorage.getItem("recent_cospace_clicked"),
+      });
+      this.setState({ content: "" });
     } catch (error) {
       this.setState({ writeError: error.message });
     }
@@ -37,10 +34,11 @@ class Chat extends Component {
   async componentDidMount() {
     this.setState({ readError: null });
     try {
-      db.collection("chats").orderBy("timestamp").onSnapshot((querySnapshot) => {
-        let chats = [];
-        querySnapshot.docs
-          .forEach((doc) => {
+      db.collection("chats")
+        .orderBy("timestamp")
+        .onSnapshot((querySnapshot) => {
+          let chats = [];
+          querySnapshot.docs.forEach((doc) => {
             if (
               doc.data().cospacename ===
               localStorage.getItem("recent_cospace_clicked")
@@ -48,16 +46,16 @@ class Chat extends Component {
               chats.push(doc.data());
             }
           });
-        this.setState({ chats});
-      });
+          this.setState({ chats });
+        });
     } catch (error) {
       this.setState({ readError: error.message });
     }
   }
-  videoCall(){
+  videoCall() {
     window.open("/vc.html", "_blank");
   }
-  
+
   handleChange(event) {
     this.setState({
       content: event.target.value,
@@ -66,10 +64,10 @@ class Chat extends Component {
   render() {
     return (
       <div className="chat-window" id="chat-window">
-        <NotificationContainer 
-          style = {{
+        <NotificationContainer
+          style={{
             zIndex: "200",
-            top: "50px"
+            top: "50px",
           }}
         />
         <div className="chat-head">
@@ -77,15 +75,8 @@ class Chat extends Component {
             <p>Messages are permanently saved in the database.</p>
           </div>
           <div className="callbtns">
-            <button onClick={() => {
-              NotificationManager.info(
-                "This feature is not available yet!"
-              );
-            }}>
-              <img src="/images/Call.png" alt="Call" />
-            </button>
             <button onClick={this.videoCall}>
-              <img src="/images/Video Call.png" alt="Video Call" />
+              Enter Room
             </button>
           </div>
         </div>
@@ -97,7 +88,7 @@ class Chat extends Component {
                 <span className="chat-name">{chat.name}</span>
                 <span className="chat-msg">{chat.content}</span>
               </div>
-            ) 
+            );
           })}
         </div>
 
@@ -119,4 +110,3 @@ class Chat extends Component {
 }
 
 export default Chat;
-

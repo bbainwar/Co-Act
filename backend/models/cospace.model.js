@@ -18,8 +18,8 @@ const cospaceSchema = new Schema(
     },
     uid: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   {
     timestamps: true,

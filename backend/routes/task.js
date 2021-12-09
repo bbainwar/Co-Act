@@ -42,10 +42,10 @@ router.get("/task-detail/:id", (req, res) => {
 });
 router.delete("/:id", async (req, res) => {
   try {
-      const task = await Task.findByIdAndDelete(req.params.id);
-      res.send(task);
+    const task = await Task.findByIdAndDelete(req.params.id);
+    res.send(task);
   } catch (error) {
-      res.send(error);
+    res.send(error);
   }
 });
 module.exports = router;

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import MultipleValueTextInput from "react-multivalue-text-input";
-// import ReactDOM from 'react-dom';
 import { WithContext as ReactTags } from "react-tag-input";
-import { IconButton } from "@material-ui/core";
 
 const KeyCodes = {
   comma: 188,

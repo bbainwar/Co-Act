@@ -1,31 +1,34 @@
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
-var cookieParser = require('cookie-parser');
+var cookieParser = require("cookie-parser");
 const passport = require("passport");
 const mongoose = require("mongoose");
-const passportSetup = require('./passport');
-///const socketio = require('socket.io');
+const passportSetup = require("./passport");
+
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 8000;
-//const io= socketio(server);
 
-app.use(cookieSession({
-  name: "session",
-  keys: ["roatt"],
-  maxAge: 24*60*60*100
-}));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["roatt"],
+    maxAge: 24 * 60 * 60 * 100,
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors({
-  origin: "http://localhost:3000",
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -38,7 +41,7 @@ mongoose.connect(uri, {
   useUnifiedTopology: true,
 });
 //io.on("connection",socket=>{
-  //console.log("New Web Socket Connection");
+//console.log("New Web Socket Connection");
 //});
 const connection = mongoose.connection;
 
@@ -80,17 +83,10 @@ app.use("/task", taskRouter);
 
 app.use("/user", userRouter);
 
-app.use("/todo",todoRouter);
+app.use("/todo", todoRouter);
 
 app.use((req, res) => {
   res.send(
     "Sorry! The page you are looking for is currently unavailable. Kindly contact bbainwar@gmail.com if you have any queries!"
   );
 });
-// app.post('/createcospaces', (req, res) => {
-//   console.log(req.body);
-//   db.collection('cospaces').insertOne(req.body, (err, data) => {
-//       if(err) return console.log(err);
-//       res.send(('saved to db: ' + data));
-//   })
-// });

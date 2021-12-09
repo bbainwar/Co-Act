@@ -16,7 +16,6 @@ router.route("/add").post((req, res) => {
   const coactors = req.body.databody.coactor;
   const uid = req.body.databody.uid;
   console.log(cospacename);
-  //const date = Date.parse(req.body.date);
   const newCospace = new cospace({
     cospacename,
     description,

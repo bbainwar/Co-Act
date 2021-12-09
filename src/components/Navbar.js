@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const pictureUrl = JSON.parse(localStorage.getItem("user")).photos[0].value;
@@ -16,10 +15,10 @@ const Navbar = () => {
         <p>Co-ACT</p>
       </div>
       <div className="notificationandprofile">
-        <Link to = "/showusernamepage">
+        <Link to="/showusernamepage">
           <button>
             <img
-              src= {pictureUrl}
+              src={pictureUrl}
               alt="avatar"
               style={{ borderRadius: "50%" }}
             />

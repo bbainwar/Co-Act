@@ -1,16 +1,11 @@
 import React from "react";
 import axios from "axios";
-import {
-  addTask,
-  getTasks,
-  updateTask,
-  deleteTask,
-} from "../services/taskServices1";
+import { deleteTask } from "../services/taskServices1";
 import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
-import { StylesProvider } from "@material-ui/styles";
+
 class Task extends React.Component {
   state = {
     assignedBy: JSON.parse(localStorage.getItem("user")).displayName,
@@ -21,14 +16,14 @@ class Task extends React.Component {
     taskStatus: "Pending",
     taskList: [],
   };
-  
+
   componentDidMountAsst = async () => {
     const uid = JSON.parse(localStorage.getItem("user")).id;
     const currentCospace = localStorage.getItem("recent_cospace_clicked");
     try {
       const { data } = await this.getTasks();
       let datas = [];
-      data.map((task, index) => {
+      data.forEach((task) => {
         if (uid === task.uid && task.cospaceName === currentCospace) {
           datas.push(task);
         }
@@ -41,7 +36,7 @@ class Task extends React.Component {
   componentDidMount() {
     this.componentDidMountAsst();
   }
- 
+
   getTasks = () => {
     return axios.get("http://localhost:8000/task");
   };
@@ -93,11 +88,9 @@ class Task extends React.Component {
     const originalTasks = this.state.taskList;
     try {
       const taskList = originalTasks.filter((task) => task._id !== currentTask);
-      this.setState({ taskList});
+      this.setState({ taskList });
       await deleteTask(currentTask);
-      NotificationManager.info(
-        "Task deleted successfully!!"
-      );
+      NotificationManager.info("Task deleted successfully!!");
     } catch (error) {
       this.setState({ taskList: originalTasks });
       console.log(error);
@@ -108,19 +101,16 @@ class Task extends React.Component {
     return (
       <div className="tasksection">
         <div className="noticontainer" id="noticontainer">
-        <NotificationContainer 
-          style = {{
-            zIndex: "200",
-            top: "50px"
-          }}
-        />
+          <NotificationContainer />
         </div>
         <h1>Tasks</h1>
         <h2>{localStorage.getItem("recent_cospace_clicked_description")}</h2>
         <div className="addnewtask">
           <form onSubmit={this.handleSubmit} className="taskform">
             <div className="taskname">
-              <label htmlFor="taskName"><b>Task</b></label>
+              <label htmlFor="taskName">
+                <b>Task Name</b>
+              </label>
               <input
                 type="text"
                 name="task"
@@ -130,7 +120,9 @@ class Task extends React.Component {
               />
             </div>
             <div className="tasknotes">
-              <label htmlFor="taskName">Task Notes</label>
+              <label htmlFor="taskName">
+                <b>Task Notes</b>
+              </label>
               <textarea
                 rows="3"
                 name="taskNotes"
@@ -139,36 +131,40 @@ class Task extends React.Component {
                 value={this.state.taskNotes}
               ></textarea>
             </div>
-            <div className="taskstatus">
-              <label htmlFor="taskStatus">Task Status</label>
-              <select
-                name="taskStatus"
-                className="taskstatusselect"
-                onChange={this.handleChange}
-                value={this.state.taskStatus}
-              >
-                <option value="pending">Pending</option>
-                <option value="In Progress">In progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Hold">Hold</option>
-              </select>
-            </div>
-            <div className="submitnewtask">
-              <input
-                type="submit"
-                name="add"
-                id="addnewtask"
-                value="Add"
-              ></input>
+            <div id="flexrow">
+              <div className="taskstatus">
+                <label htmlFor="taskStatus">
+                  <b>Task Status</b>
+                </label>
+                <select
+                  name="taskStatus"
+                  className="taskstatusselect"
+                  onChange={this.handleChange}
+                  value={this.state.taskStatus}
+                >
+                  <option value="pending">Pending</option>
+                  <option value="In Progress">In progress</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Hold">Hold</option>
+                </select>
+              </div>
+              <div className="submitnewtask">
+                <input
+                  type="submit"
+                  name="add"
+                  id="addnewtask"
+                  value="Add"
+                ></input>
+              </div>
             </div>
           </form>
         </div>
 
         <div className="tasklist">
-          <ul className="taskheading taskcards">
+          <ul className="taskcards tasklisthead" style={{ height: "50px" }}>
             <li>
               <div className="taskcard">
-                <div className="task">
+                <div className="taskName">
                   <b>Task</b>
                 </div>
                 <div className="taskNotes">
@@ -181,28 +177,31 @@ class Task extends React.Component {
                   <b>Task Status</b>
                 </div>
               </div>
-              <div className="taskcontrols">
-                <div className="edittasks"></div>
-                <div className="deletetasks"></div>
-              </div>
             </li>
           </ul>
+        </div>
+        <div className="tasklist">
           <ul className="taskcards">
             {taskList.map((task) => (
               <li>
                 <div className="taskcard">
-                  <div className="task">{task.task}</div>
+                  <div className="taskName">{task.task}</div>
                   <div className="taskNotes">{task.taskNotes}</div>
                   <div className="assignedBy">{task.assignedBy}</div>
                   <div className="taskStatus">{task.taskStatus}</div>
                 </div>
                 <div className="taskcontrols">
                   <div className="edittasks">
-                    <button id="editbtn" onClick={() => {
-                      NotificationManager.info(
-                        "This feature is not available yet!"
-                      );
-                    }}>Edit</button>
+                    <button
+                      id="editbtn"
+                      onClick={() => {
+                        NotificationManager.info(
+                          "This feature is not available yet!"
+                        );
+                      }}
+                    >
+                      Edit
+                    </button>
                   </div>
                   <div className="deletetasks">
                     <button

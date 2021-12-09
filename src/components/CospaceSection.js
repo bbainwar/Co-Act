@@ -12,7 +12,7 @@ class CospaceSection extends Component {
   state = { posts: [] };
   componentDidMount = () => {
     this.getCospaces();
-    if(localStorage.getItem("cospace_created") === "1"){
+    if (localStorage.getItem("cospace_created") === "1") {
       NotificationManager.success("Co-Space Created Successfully!");
       localStorage.setItem("cospace_created", "0");
     }
@@ -47,21 +47,32 @@ class CospaceSection extends Component {
   setCurrentCospace = (e) => {
     localStorage.setItem("recent_cospace_clicked", e.currentTarget.id);
     this.state.posts.map((post) => {
-      if(post.cospacename === e.currentTarget.id){
-        localStorage.setItem("recent_cospace_clicked_description", post.description);
-        localStorage.setItem("recent_cospace_clicked_coactors", JSON.stringify(post.coactors));
+      if (post.cospacename === e.currentTarget.id) {
+        localStorage.setItem(
+          "recent_cospace_clicked_description",
+          post.description
+        );
+        localStorage.setItem(
+          "recent_cospace_clicked_coactors",
+          JSON.stringify(post.coactors)
+        );
         localStorage.setItem("recent_cospace_clicked_uid", post.uid);
       }
-    })
+    });
     window.location.href = "http://localhost:3000/taskpage";
-  }
+  };
 
   displayCospace = (posts) => {
     return posts.map((post, index) => (
-        <div key={index} className="cospace" id = {post.cospacename} onClick={this.setCurrentCospace}>
-          <h3>{post.cospacename}</h3>
-          <p>{post.description}</p>
-        </div>
+      <div
+        key={index}
+        className="cospace"
+        id={post.cospacename}
+        onClick={this.setCurrentCospace}
+      >
+        <h3>{post.cospacename}</h3>
+        <p>{post.description}</p>
+      </div>
     ));
   };
 

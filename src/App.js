@@ -11,7 +11,6 @@ import CreateCospacePage from "./CreateCospacePage";
 import Chatpage from "./Chatpage";
 import Taskspage from "./Taskspage";
 import TodoPage from "./TodoPage";
-import CalendarPage from "./CalendarPage";
 import CoactorsPage from "./CoactorsPage";
 import { useEffect, useState } from "react";
 import ShowUsernamePage from "./ShowUsernamePage";
@@ -114,16 +113,6 @@ function App() {
             element={
               localStorage.getItem("user") || user ? (
                 <TodoPage />
-              ) : (
-                <Navigate to="/getstarted" />
-              )
-            }
-          />
-          <Route
-            path="/calendarpage"
-            element={
-              localStorage.getItem("user") || user ? (
-                <CalendarPage />
               ) : (
                 <Navigate to="/getstarted" />
               )

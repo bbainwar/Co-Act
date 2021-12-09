@@ -11,7 +11,9 @@ const ShowUsernameComponent = () => {
         "!
       </p>
       <div className="linktomain">
-        <Link to="/mainpage"><button>Back to mainpage</button></Link>
+        <Link to="/mainpage">
+          <button>Back to mainpage</button>
+        </Link>
       </div>
     </div>
   );

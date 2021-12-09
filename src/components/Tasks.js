@@ -5,7 +5,7 @@ import {
   updateTask,
   deleteTask,
 } from "../services/taskServices";
-import axios from "axios";
+
 class Tasks extends Component {
   state = { tasks: [], currentTask: "" };
   async componentDidMount() {

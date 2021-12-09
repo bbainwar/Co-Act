@@ -3,20 +3,18 @@ import { Link } from "react-router-dom";
 const CospaceMenu = (props) => {
   const chat_button_class_name = props.chat_button_class_name;
   const task_button_class_name = props.task_button_class_name;
-  const file_button_class_name = props.file_button_class_name;
+
   const coactor_button_class_name = props.coactor_button_class_name;
 
   var chat_png_src = "images/Facebook Messenger.png";
   var task_png_src = "images/Task.png";
-  var file_png_src = "images/Document.png";
+
   var coactor_png_src = "images/Leadership.png";
 
   if (chat_button_class_name === "selected") {
     chat_png_src = "images/Facebook Messenger white.png";
   } else if (task_button_class_name === "selected") {
     task_png_src = "images/Task white.png";
-  } else if (file_button_class_name === "selected") {
-    file_png_src = "images/Document white.png";
   } else {
     coactor_png_src = "images/Leadership white.png";
   }
@@ -25,14 +23,6 @@ const CospaceMenu = (props) => {
     <div className="cospacemenu">
       <h1>{localStorage.getItem("recent_cospace_clicked")}</h1>
       <ul>
-        <Link to="/chatpage">
-          <button className={chat_button_class_name}>
-            <li>
-              <img src={chat_png_src} alt="Chat" />
-              <p>Chat</p>
-            </li>
-          </button>
-        </Link>
         <Link to="/taskpage">
           <button className={task_button_class_name}>
             <li>
@@ -41,6 +31,15 @@ const CospaceMenu = (props) => {
             </li>
           </button>
         </Link>
+        <Link to="/chatpage">
+          <button className={chat_button_class_name}>
+            <li>
+              <img src={chat_png_src} alt="Chat" />
+              <p>Chat</p>
+            </li>
+          </button>
+        </Link>
+
         <Link to="/coactorspage">
           <button className={coactor_button_class_name}>
             <li>
