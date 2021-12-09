@@ -88,13 +88,13 @@ class Task extends React.Component {
       });
   };
   handleDelete = async (currentTask) => {
-    const originalTasks = this.state.task;
+    const originalTasks = this.state.taskList;
     try {
-      const tasks = originalTasks.filter((task) => task._id !== currentTask);
-      this.setState({ tasks });
+      const taskList = originalTasks.filter((task) => task._id !== currentTask);
+      this.setState({ taskList});
       await deleteTask(currentTask);
     } catch (error) {
-      this.setState({ task: originalTasks });
+      this.setState({ taskList: originalTasks });
       console.log(error);
     }
   };
