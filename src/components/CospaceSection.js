@@ -41,7 +41,8 @@ class CospaceSection extends Component {
     this.state.posts.map((post) => {
       if(post.cospacename === e.currentTarget.id){
         localStorage.setItem("recent_cospace_clicked_description", post.description);
-        console.log(post.description);
+        localStorage.setItem("recent_cospace_clicked_coactors", JSON.stringify(post.coactors));
+        localStorage.setItem("recent_cospace_clicked_uid", post.uid);
       }
     })
     window.location.href = "http://localhost:3000/taskpage";

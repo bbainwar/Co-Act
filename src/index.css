@@ -390,6 +390,10 @@ nav{
   grid-template-columns: 30% 30% 30%;
   grid-gap: 50px;
 
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   justify-content: center;
 }
 
@@ -899,3 +903,47 @@ nav{
 #deletebtn{
   background-color: rgb(255, 0, 0);
 }
+
+/* .coactorssection */
+
+.coactorssection{
+  text-align: center;
+}
+
+.tasksection h1{
+  font-size: 48px;
+}
+
+.coactorssection h1{
+  font-size: 64px;
+}
+
+.coactorList{
+  margin-top: 100px;
+
+  font-size: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.coactor{
+  width: 80%;
+  padding: 5px;
+
+  border-radius: 5px;
+
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+}
+
+
+

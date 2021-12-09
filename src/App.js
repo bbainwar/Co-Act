@@ -42,10 +42,6 @@ function App() {
     }
     getUser();
   }, []);
-<<<<<<< HEAD
-=======
-
->>>>>>> 14b3437354ff55f45f63234d5f3976e227663c47
   return (
     <Router>
       <div>
