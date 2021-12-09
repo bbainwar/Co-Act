@@ -238,7 +238,7 @@ nav {
   bottom: 0px;
   background-color: var(--lightBlue);
   width: 75px;
-  z-index: 50;
+  z-index: 1;
 }
 
 .cospacemenu a,
@@ -350,7 +350,6 @@ nav {
 /* Cospace section */
 
 .todosection,
-.calendarsection,
 .createcospace,
 .cospacesection {
   position: absolute;
@@ -363,6 +362,7 @@ nav {
   padding: 10px;
 
   width: calc(100% - 100px);
+  height: calc(100% - 60px);
 }
 
 .createcospacebutton {
@@ -599,7 +599,7 @@ nav {
   flex-direction: column;
   align-items: stretch;
   transition: all 0.4s ease;
-  z-index: 10;
+  z-index: 0;
 }
 
 .chat-head {
@@ -934,6 +934,7 @@ nav {
 .taskcontrols {
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .taskcontrols button {
@@ -941,7 +942,7 @@ nav {
   border: none;
   border-radius: 5px;
 
-  color: white;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -1007,9 +1008,3 @@ nav {
   background-color: var(--white);
 }
 
-#noticontainer {
-  position: absolute;
-  z-index: 200;
-  top: 50px;
-  right: 20px;
-}

@@ -40,9 +40,7 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-//io.on("connection",socket=>{
-//console.log("New Web Socket Connection");
-//});
+
 const connection = mongoose.connection;
 
 connection.once("open", () => {
@@ -52,6 +50,7 @@ connection.once("open", () => {
 app.listen(port, () => {
   console.log(`The server is running on port: ${port}`);
 });
+
 
 const authRouter = require("./routes/auth");
 

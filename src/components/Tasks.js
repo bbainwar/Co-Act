@@ -13,7 +13,7 @@ class Tasks extends Component {
     try {
       const { data } = await getTasks();
       let datas = [];
-      data.map((todo, index) => {
+      data.map((todo) => {
         if (uid === todo.uid) {
           datas.push(todo);
         }

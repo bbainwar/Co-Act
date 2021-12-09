@@ -1,8 +1,5 @@
 import React from "react";
 
-const clientId =
-  "956293473525-6ljbo3kpik2mgu1v2jjhktaedj7he830.apps.googleusercontent.com";
-
 const Login = () => {
   const google = () => {
     window.open("http://localhost:8000/auth/google", "_self");

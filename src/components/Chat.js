@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import db from "../services/Firebase";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
 class Chat extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +49,7 @@ class Chat extends Component {
     }
   }
   videoCall() {
-    window.open("/vc.html", "_blank");
+    window.open("/vc.html", "win");
   }
 
   handleChange(event) {
@@ -64,12 +60,6 @@ class Chat extends Component {
   render() {
     return (
       <div className="chat-window" id="chat-window">
-        <NotificationContainer
-          style={{
-            zIndex: "200",
-            top: "50px",
-          }}
-        />
         <div className="chat-head">
           <div>
             <p>Messages are permanently saved in the database.</p>

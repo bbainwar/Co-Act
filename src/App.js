@@ -14,6 +14,7 @@ import TodoPage from "./TodoPage";
 import CoactorsPage from "./CoactorsPage";
 import { useEffect, useState } from "react";
 import ShowUsernamePage from "./ShowUsernamePage";
+import JitsiRoom from "./JitsiRoom";
 
 function App() {
   const [user, setUser] = useState(null);

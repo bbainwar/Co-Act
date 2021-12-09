@@ -79,12 +79,7 @@ class CospaceSection extends Component {
   render() {
     return (
       <div className="cospacesection">
-        <NotificationContainer
-          style={{
-            zIndex: "200",
-            top: "50px",
-          }}
-        />
+        <NotificationContainer/>
         <div className="mainpageheading">
           <h1>Co-SPACES</h1>
         </div>
