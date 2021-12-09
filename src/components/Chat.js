@@ -33,7 +33,7 @@ class Chat extends Component {
   async componentDidMount() {
     this.setState({ readError: null });
     try {
-      db.collection("chats",orderBy("timestamp")).onSnapshot((querySnapshot) => {
+      db.collection("chats").orderBy("timestamp").onSnapshot((querySnapshot) => {
         let chats = [];
         querySnapshot.docs
           .forEach((doc) => {

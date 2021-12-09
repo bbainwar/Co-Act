@@ -1,12 +1,16 @@
 import React from "react";
-import TaskList from "./taskList";
 import axios from "axios";
+import {
+  addTask,
+  getTasks,
+  updateTask,
+  deleteTask,
+} from "../services/taskServices1";
 import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
 import { StylesProvider } from "@material-ui/styles";
-
 class Task extends React.Component {
   state = {
     assignedBy: JSON.parse(localStorage.getItem("user")).displayName,
@@ -17,7 +21,6 @@ class Task extends React.Component {
     taskStatus: "Pending",
     taskList: [],
   };
-
   componentDidMountAsst = async () => {
     const uid = JSON.parse(localStorage.getItem("user")).id;
     const currentCospace = localStorage.getItem("recent_cospace_clicked");
@@ -34,15 +37,12 @@ class Task extends React.Component {
       console.log(error);
     }
   };
-
   componentDidMount() {
     this.componentDidMountAsst();
   }
-
   getTasks = () => {
     return axios.get("http://localhost:8000/task");
   };
-
   handleChange = (event) => {
     if (event.target.name === "taskStatus") {
       this.setState({
@@ -87,7 +87,17 @@ class Task extends React.Component {
         else NotificationManager.error("Something Went Wrong");
       });
   };
-
+  handleDelete = async (currentTask) => {
+    const originalTasks = this.state.task;
+    try {
+      const tasks = originalTasks.filter((task) => task._id !== currentTask);
+      this.setState({ tasks });
+      await deleteTask(currentTask);
+    } catch (error) {
+      this.setState({ task: originalTasks });
+      console.log(error);
+    }
+  };
   render() {
     let { taskList } = this.state;
     return (
@@ -145,24 +155,24 @@ class Task extends React.Component {
         <div className="tasklist">
           <ul className="taskheading taskcards">
             <li>
-            <div className="taskcard">
-              <div className="task">
-                <b>Task</b>
+              <div className="taskcard">
+                <div className="task">
+                  <b>Task</b>
+                </div>
+                <div className="taskNotes">
+                  <b>Task Notes</b>
+                </div>
+                <div className="assignedBy">
+                  <b>Assigned By</b>
+                </div>
+                <div className="taskStatus">
+                  <b>Task Status</b>
+                </div>
               </div>
-              <div className="taskNotes">
-                <b>Task Notes</b>
+              <div className="taskcontrols">
+                <div className="edittasks"></div>
+                <div className="deletetasks"></div>
               </div>
-              <div className="assignedBy">
-                <b>Assigned By</b>
-              </div>
-              <div className="taskStatus">
-                <b>Task Status</b>
-              </div>
-            </div>
-            <div className="taskcontrols">
-              <div className="edittasks"></div>
-              <div className="deletetasks"></div>
-            </div>
             </li>
           </ul>
           <ul className="taskcards">
@@ -179,7 +189,12 @@ class Task extends React.Component {
                     <button id="editbtn">Edit</button>
                   </div>
                   <div className="deletetasks">
-                    <button id="deletebtn">Delete</button>
+                    <button
+                      id="deletebtn"
+                      onClick={() => this.handleDelete(task._id)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </li>

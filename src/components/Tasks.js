@@ -14,9 +14,9 @@ class Tasks extends Component {
       const { data } = await getTasks();
       let datas = [];
       data.map((todo, index) => {
-          if(uid===todo.uid){
-              datas.push(todo);
-          }
+        if (uid === todo.uid) {
+          datas.push(todo);
+        }
       });
       this.setState({ tasks: datas });
     } catch (error) {

@@ -9,9 +9,6 @@ const Getstarted = (props) => {
     const vector_class_name = 'getstarted_vector';
     const vector_name = 'getStartedVector.png';
     const vector_alt = 'getStartedVector';
-    // const vector_ok = 'getVectorOk';
-
-
     return (
         <div className="getstarted">
             <Blankspace class_name = {blankspace_class_name}/>

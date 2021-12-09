@@ -35,7 +35,6 @@ class CreateCospace extends Component {
         console.log("Data has been received!!");
       })
       .catch((e) => {
-        //alert("Error");
         console.log(e);
       });
   };
@@ -78,11 +77,8 @@ class CreateCospace extends Component {
 
     newTags.splice(currPos, 1);
     newTags.splice(newPos, 0, tag);
-
-    // re-render
     this.setState({ tags: newTags });
   }
-
   handleChange(event) {
     if ([].includes(event.target.name)) {
       let coactor = [this.state.coactor];
@@ -114,10 +110,8 @@ class CreateCospace extends Component {
           console.log(error.response);
         } else if (error.request) {
           console.log(error.request);
-          //do something else
         } else if (error.message) {
           console.log(error.message);
-          //do something other than the other two
         }
       });
   }
@@ -153,21 +147,6 @@ class CreateCospace extends Component {
           </div>
           <div className="coactornames">
             <label htmlFor="coActorNames">Co-Actor Names:</label>
-            {/* <MultipleValueTextInput
-              name="item-input"
-              onItemAdded={
-                (item, allItems) => this.state.coactor.add(item)
-                //console.log(`Item added: ${item}`)
-                //console.log(allItems)
-              }
-              onItemDeleted={
-                (item, allItems) => this.state.coactor.remove(item)
-                //console.log(`Item removed: ${item}`)
-              }
-              name="coactor"
-              value={this.state.coactor}
-              onChange={this.handleChange}
-            /> */}
             <ReactTags
               tags={tags}
               suggestions={suggestions}
@@ -190,5 +169,4 @@ class CreateCospace extends Component {
     );
   }
 }
-
 export default CreateCospace;

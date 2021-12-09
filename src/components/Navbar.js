@@ -15,14 +15,7 @@ const Navbar = () => {
       <div className="logo">
         <p>Co-ACT</p>
       </div>
-      {/* <div className="searchbar">
-                <form>
-                    <input type="text" placeholder="Search for Co-Actors and Co-spaces..." name="searchname"/>
-                    <button type="submit"><img src="images/Search.png" alt="searchbutton" /></button>
-                </form>
-            </div> */}
       <div className="notificationandprofile">
-        {/* <button><img src="images/Alarm.png" alt="notification"/></button> */}
         <Link to = "/showusernamepage">
           <button>
             <img

@@ -31,7 +31,6 @@ class CospaceSection extends Component {
         console.log("Data has been received!!");
       })
       .catch((e) => {
-        //alert("Error");
         console.log(e);
       });
   };
@@ -48,7 +47,6 @@ class CospaceSection extends Component {
   }
 
   displayCospace = (posts) => {
-    //if (!posts.length()) return null;
     return posts.map((post, index) => (
         <div key={index} className="cospace" id = {post.cospacename} onClick={this.setCurrentCospace}>
           <h3>{post.cospacename}</h3>

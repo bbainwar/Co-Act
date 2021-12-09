@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 import ShowUsernamePage from "./ShowUsernamePage";
 
 function App() {
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -30,22 +29,21 @@ function App() {
           "Content-Type": "application/json",
           "Access-Control-Allow-Credentials": true,
         },
-      }).then((response) => {
-        if (response.status === 200) return response.json();
-        throw new Error("Authentication has been failed");
-      }).then(resObject => {
-        setUser(resObject.user);
-        localStorage.setItem("user", JSON.stringify(resObject.user))
-      }).catch(error => {
-        console.log(error);
       })
-    }
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("Authentication has been failed");
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+          localStorage.setItem("user", JSON.stringify(resObject.user));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
     getUser();
   }, []);
-<<<<<<< HEAD
-=======
-
->>>>>>> 14b3437354ff55f45f63234d5f3976e227663c47
   return (
     <Router>
       <div>
