@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import moment from "moment";
 import { query, orderBy } from "firebase/firestore";
 import db from "../services/Firebase";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 class Chat extends Component {
   constructor(props) {
     super(props);
@@ -62,12 +66,22 @@ class Chat extends Component {
   render() {
     return (
       <div className="chat-window" id="chat-window">
+        <NotificationContainer 
+          style = {{
+            zIndex: "200",
+            top: "50px"
+          }}
+        />
         <div className="chat-head">
           <div>
             <p>Messages are permanently saved in the database.</p>
           </div>
-          <div className="callbtns" onClick={this.videoCall}>
-            <button>
+          <div className="callbtns">
+            <button onClick={() => {
+              NotificationManager.info(
+                "This feature is not available yet!"
+              );
+            }}>
               <img src="/images/Call.png" alt="Call" />
             </button>
             <button onClick={this.videoCall}>

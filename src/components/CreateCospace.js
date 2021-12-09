@@ -26,9 +26,9 @@ class CreateCospace extends Component {
         data.map((user, index) => {
           payload.push({
             id: user.userId,
-            text: user.username
-          })
-        })
+            text: user.username,
+          });
+        });
 
         this.setState({ suggestions: payload });
 
@@ -46,9 +46,9 @@ class CreateCospace extends Component {
       description: "",
       tags: [
         {
-          id: JSON.parse(localStorage.getItem('user')).id,
-          text: JSON.parse(localStorage.getItem('user')).displayName
-        }
+          id: JSON.parse(localStorage.getItem("user")).id,
+          text: JSON.parse(localStorage.getItem("user")).displayName,
+        },
       ],
       suggestions: [],
     };
@@ -96,13 +96,13 @@ class CreateCospace extends Component {
       title: this.state.title,
       description: this.state.description,
       coactor: this.state.tags,
-      uid: JSON.parse(localStorage.getItem("user")).id
+      uid: JSON.parse(localStorage.getItem("user")).id,
     };
     console.log(databody);
     axios
       .post("http://localhost:8000/cospace/add", { databody })
       .then((res) => {
-        console.log("Success");
+        localStorage.setItem("cospace_created", "1");
         window.location.href = "http://localhost:3000/mainpage";
       })
       .catch((error) => {
