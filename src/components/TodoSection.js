@@ -16,7 +16,7 @@ class TodoSection extends Tasks {
             style={{ margin: "15px 0" }}
           >
             <TextField
-              variant="outlined"
+              // variant="outlined"
               size="small"
               style={{ width: "80%" }}
               value={this.state.currentTask}
@@ -27,7 +27,7 @@ class TodoSection extends Tasks {
             <Button
               style={{ height: "40px" }}
               color="primary"
-              variant="outlined"
+              // variant="outlined"
               type="submit"
             >
               Add task
