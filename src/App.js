@@ -44,14 +44,6 @@ function App() {
     getUser();
   }, []);
 
-  // if (!user && window.location.pathname === "/mainpage"){
-  //   return(
-  //     <div>
-  //       loading...
-  //     </div>
-  //   )
-  // }
-
   return (
     <Router>
       <div>
@@ -60,7 +52,7 @@ function App() {
             path="/"
             exact
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <Navigate to="/mainpage" />
               ) : (
                 <Homepage />
@@ -70,7 +62,7 @@ function App() {
           <Route
             path="/getstarted"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <Navigate to="/mainpage" />
               ) : (
                 <Getstarted />
@@ -80,7 +72,7 @@ function App() {
           <Route
             path="/mainpage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <Mainpage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -90,7 +82,7 @@ function App() {
           <Route
             path="/createcospace"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <CreateCospacePage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -100,7 +92,7 @@ function App() {
           <Route
             path="/chatpage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <Chatpage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -110,7 +102,7 @@ function App() {
           <Route
             path="/taskpage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <Taskspage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -120,7 +112,7 @@ function App() {
           <Route
             path="/todopage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <TodoPage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -130,7 +122,7 @@ function App() {
           <Route
             path="/calendarpage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <CalendarPage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -140,7 +132,7 @@ function App() {
           <Route
             path="/coactorspage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <CoactorsPage />
               ) : (
                 <Navigate to="/getstarted" />
@@ -150,7 +142,7 @@ function App() {
           <Route
             path="/showusernamepage"
             element={
-              localStorage.getItem("user") ? (
+              localStorage.getItem("user") || user ? (
                 <ShowUsernamePage />
               ) : (
                 <Navigate to="/getstarted" />

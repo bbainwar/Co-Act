@@ -834,19 +834,28 @@ nav{
 /* Task List */
 
 .tasklist{
-  padding: 10px;
+  margin: 10px;
 }
 
 .taskcards{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 80%;
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.taskheading{
+  overflow-y: hidden;
+  height: auto;
+  margin-bottom: 20px;
+}
+
 .taskcards li{
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 80% 20%;
   gap: 20px;
 }
 
