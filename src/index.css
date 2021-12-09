@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 :root {
   --darkBlue: #144F71;
@@ -15,7 +16,7 @@
 *{
   margin: 0px;
   padding: 0px;
-  font-family: 'Red Rose';
+  font-family: 'Open Sans', sans-serif;
 }
 
 a{
@@ -742,7 +743,7 @@ nav{
 .App {
   width: 100vw;
   height: 100vh;
-  background: #f5f5f5;
+  background-color: #e0e0e0;
 }
 
 .heading {
@@ -755,6 +756,8 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+
+  gap: 5px;
 }
 
 .container {
@@ -771,6 +774,7 @@ nav{
 .task {
   flex-grow: 1;
   margin-left: 10px;
+  margin-top: 5px;
 }
 
 .line_through {
@@ -832,7 +836,7 @@ nav{
 #addnewtask{
   height: 30px;
   font-size: 18px;
-  padding: 5px;
+  padding: 2px;
 }
 
 /* Task List */
@@ -844,7 +848,7 @@ nav{
 .taskcards{
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 80%;
+  height: 70%;
   list-style: none;
   display: flex;
   flex-direction: column;

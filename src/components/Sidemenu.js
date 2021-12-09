@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 const Sidemenu = (props) => {
-  const cospace_button_class_name = props.cospace_button_class_name;
-  const calendar_button_class_name = props.calendar_button_class_name;
-  const todo_button_class_name = props.todo_button_class_name;
+  var cospace_button_class_name = props.cospace_button_class_name;
+  var calendar_button_class_name = props.calendar_button_class_name;
+  var todo_button_class_name = props.todo_button_class_name;
 
   var cospace_png_src = "images/People.png";
   var calendar_png_src = "images/Planner.png";
