@@ -66,7 +66,7 @@ class Chat extends Component {
           <div>
             <p>Messages are permanently saved in the database.</p>
           </div>
-          <div className="callbtns">
+          <div className="callbtns" onClick={this.videoCall}>
             <button>
               <img src="/images/Call.png" alt="Call" />
             </button>

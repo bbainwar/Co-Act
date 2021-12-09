@@ -1,43 +1,23 @@
 import React from "react";
-import axios from "axios";
 
-class CoactorsSection extends React.Component {
-  state = {
-    coactorList: [],
-  };
-
-  getCoactors = () => {
-    return axios.get("http://localhost:8000/user");
-  };
-
-  componentDidMountAsst = async () => {
-    const uid = JSON.parse(localStorage.getItem("user")).id;
-    const currentCospace = localStorage.getItem("recent_cospace_clicked");
-    try {
-      const { data } = await this.getCoactors();
-      let datas = [];
-      data.map((task, index) => {
-        if (uid === task.uid && task.cospaceName === currentCospace) {
-          datas.push(task);
-        }
-      });
-      this.setState({ taskList: datas });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  componentDidMount() {
-    this.componentDidMountAsst();
-  }
-
-  render() {
-    return (
-      <div className="coactorssection">
-        <h1>Coactors Section</h1>
-      </div>
+const CoactorsSection = () => {
+  const displayCoactors = () => {
+    const coactors = JSON.parse(
+      localStorage.getItem("recent_cospace_clicked_coactors")
     );
-  }
-}
+    return coactors.map((coactor, index) => (
+      <div key={index} className="coactor">
+        <div className="coactor">{coactor.text}</div>
+      </div>
+    ));
+  };
+
+  return (
+    <div className="coactorssection">
+      <h1>Co-Actors</h1>
+      <div className="coactorList">{displayCoactors()}</div>
+    </div>
+  );
+};
 
 export default CoactorsSection;

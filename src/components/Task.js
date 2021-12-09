@@ -98,7 +98,7 @@ class Task extends React.Component {
         <div className="addnewtask">
           <form onSubmit={this.handleSubmit} className="taskform">
             <div className="taskname">
-              <label htmlFor="taskName">Task</label>
+              <label htmlFor="taskName"><b>Task</b></label>
               <input
                 type="text"
                 name="task"
