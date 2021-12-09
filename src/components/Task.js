@@ -21,6 +21,7 @@ class Task extends React.Component {
     taskStatus: "Pending",
     taskList: [],
   };
+  
   componentDidMountAsst = async () => {
     const uid = JSON.parse(localStorage.getItem("user")).id;
     const currentCospace = localStorage.getItem("recent_cospace_clicked");
@@ -40,6 +41,7 @@ class Task extends React.Component {
   componentDidMount() {
     this.componentDidMountAsst();
   }
+ 
   getTasks = () => {
     return axios.get("http://localhost:8000/task");
   };
