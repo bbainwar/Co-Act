@@ -50,6 +50,10 @@ class Chat extends Component {
       this.setState({ readError: error.message });
     }
   }
+  videoCall(){
+    window.open("/vc.html", "_blank");
+  }
+  
   handleChange(event) {
     this.setState({
       content: event.target.value,
@@ -66,7 +70,7 @@ class Chat extends Component {
             <button>
               <img src="/images/Call.png" alt="Call" />
             </button>
-            <button>
+            <button onClick={this.videoCall}>
               <img src="/images/Video Call.png" alt="Video Call" />
             </button>
           </div>
