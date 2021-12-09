@@ -75,7 +75,7 @@ class Task extends React.Component {
     axios
       .post("http://localhost:8000/task/add", data)
       .then(async (res) => {
-        NotificationManager.warning("Task added!");
+        NotificationManager.success("Task added!");
         this.state.task = "";
         this.state.taskNotes = "";
         this.state.taskStatus = "Pending";
@@ -93,6 +93,9 @@ class Task extends React.Component {
       const taskList = originalTasks.filter((task) => task._id !== currentTask);
       this.setState({ taskList});
       await deleteTask(currentTask);
+      NotificationManager.info(
+        "Task deleted successfully!!"
+      );
     } catch (error) {
       this.setState({ taskList: originalTasks });
       console.log(error);
@@ -102,7 +105,14 @@ class Task extends React.Component {
     let { taskList } = this.state;
     return (
       <div className="tasksection">
-        <NotificationContainer />
+        <div className="noticontainer" id="noticontainer">
+        <NotificationContainer 
+          style = {{
+            zIndex: "200",
+            top: "50px"
+          }}
+        />
+        </div>
         <h1>Tasks</h1>
         <h2>{localStorage.getItem("recent_cospace_clicked_description")}</h2>
         <div className="addnewtask">
@@ -186,7 +196,11 @@ class Task extends React.Component {
                 </div>
                 <div className="taskcontrols">
                   <div className="edittasks">
-                    <button id="editbtn">Edit</button>
+                    <button id="editbtn" onClick={() => {
+                      NotificationManager.info(
+                        "This feature is not available yet!"
+                      );
+                    }}>Edit</button>
                   </div>
                   <div className="deletetasks">
                     <button

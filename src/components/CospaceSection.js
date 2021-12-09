@@ -3,10 +3,19 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Component } from "react";
 
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+
 class CospaceSection extends Component {
   state = { posts: [] };
   componentDidMount = () => {
     this.getCospaces();
+    if(localStorage.getItem("cospace_created") === "1"){
+      NotificationManager.success("Co-Space Created Successfully!");
+      localStorage.setItem("cospace_created", "0");
+    }
   };
   getCospaces = () => {
     const uid = JSON.parse(localStorage.getItem("user")).id;
@@ -59,6 +68,12 @@ class CospaceSection extends Component {
   render() {
     return (
       <div className="cospacesection">
+        <NotificationContainer
+          style={{
+            zIndex: "200",
+            top: "50px",
+          }}
+        />
         <div className="mainpageheading">
           <h1>Co-SPACES</h1>
         </div>
