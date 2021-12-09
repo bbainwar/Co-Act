@@ -34,7 +34,6 @@ function App() {
         if (response.status === 200) return response.json();
         throw new Error("Authentication has been failed");
       }).then(resObject => {
-        // localStorage.setItem("user", resObject);
         setUser(resObject.user);
         localStorage.setItem("user", JSON.stringify(resObject.user))
       }).catch(error => {
@@ -43,15 +42,6 @@ function App() {
     }
     getUser();
   }, []);
-
-  // if (!user && window.location.pathname === "/mainpage"){
-  //   return(
-  //     <div>
-  //       loading...
-  //     </div>
-  //   )
-  // }
-
   return (
     <Router>
       <div>
